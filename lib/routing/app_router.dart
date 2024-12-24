@@ -1,57 +1,60 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../ui/auth/login/providers/auth_provider.dart';
 import '../ui/auth/login/widgets/login_page.dart';
-import 'app_router_notifier.dart';
+import '../ui/auth/register/widgets/register_page.dart';
+import '../ui/home/widgets/home_page.dart';
 
-final goRouterProvider = Provider((ref) {
-  final goRouterNotifier = ref.read(goRouterNotifierProvider);
+part 'app_router.g.dart';
+
+@riverpod
+GoRouter appRouter(AppRouterRef ref) {
   return GoRouter(
-      initialLocation: '/check_auth_status',
-      refreshListenable: goRouterNotifier,
-      routes: [
-        ///* Primera pantalla
-        // GoRoute(
-        //     path: '/check_auth_status',
-        //     builder: (_, __) => const CheckAuthStatusScreen()),
+    initialLocation: '/login',
+    // refreshListenable: goRouterNotifier,
+    routes: [
+      ///* Primera pantalla
+      // GoRoute(
+      //     path: '/check_auth_status',
+      //     builder: (_, __) => const CheckAuthStatusScreen()),
 
-        ///* Auth Routes
-        GoRoute(
-          path: '/login',
-          builder: (context, state) => const LoginPage(),
-        ),
-        // GoRoute(
-        //   path: '/register',
-        //   builder: (context, state) => const RegisterScreen(),
-        // ),
+      ///* Auth Routes
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
+        path: '/register',
+        builder: (context, state) => const RegisterPage(),
+      ),
 
-        ///* Product Routes
-        // GoRoute(
-        //   path: '/',
-        //   builder: (context, state) => const ProductsScreen(),
-        // ),
+      ///* Product Routes
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const HomePage(),
+      ),
 
-        // GoRoute(
-        //   path: '/product/:id',
-        //   builder: (context, state) => ProductScreen(
-        //     productId: state.params['id'] ?? 'no-id',
-        //   ),
-        // ),
-      ],
-      redirect: (context, state) {
-        final isGointTo = state.name;
-        final authStatus = goRouterNotifier.authStatus;
-
-        if (authStatus == AuthStatus.notAuth) {
-          if (isGointTo == '/login' || isGointTo == '/register') return null;
-          return '/login';
-        }
-        if (authStatus == AuthStatus.auth) {
-          if (isGointTo == '/login' ||
-              isGointTo == '/register' ||
-              isGointTo == '/check_auth_status') return '/';
-        }
-        return null;
-      });
-});
+      // GoRoute(
+      //   path: '/product/:id',
+      //   builder: (context, state) => ProductScreen(
+      //     productId: state.params['id'] ?? 'no-id',
+      //   ),
+      // ),
+    ],
+    // redirect: (context, state) {
+    //   final isGointTo = state.name;
+    //   final authStatus = goRouterNotifier.authStatus;
+    //
+    //   if (authStatus == AuthStatus.notAuth) {
+    //     if (isGointTo == '/login' || isGointTo == '/register') return null;
+    //     return '/login';
+    //   }
+    //   if (authStatus == AuthStatus.auth) {
+    //     if (isGointTo == '/login' ||
+    //         isGointTo == '/register' ||
+    //         isGointTo == '/check_auth_status') return '/';
+    //   }
+    //   return null;
+    // },
+  );
+}
