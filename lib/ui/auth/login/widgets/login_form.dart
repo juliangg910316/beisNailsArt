@@ -16,7 +16,12 @@ class LoginForm extends ConsumerWidget {
     final textStyles = Theme.of(context).textTheme;
 
     ref.listen(authProvider, (previous, next) {
+      if (next.status == AuthStatus.auth) {
+        context.go('/');
+      }
+
       if (next.errorMessage.isEmpty) return;
+
       showSnackbar(context, next.errorMessage);
     });
 
@@ -31,8 +36,7 @@ class LoginForm extends ConsumerWidget {
             label: 'Correo',
             keyboardType: TextInputType.emailAddress,
             onChanged: ref.read(loginFormProvider.notifier).onEmailChange,
-            errorMessage:
-                loginForm.isPosting ? loginForm.email.errorMessage : null,
+            errorMessage: loginForm.email.errorMessage,
           ),
           const SizedBox(height: 30),
           CustomTextFormField(
@@ -41,8 +45,7 @@ class LoginForm extends ConsumerWidget {
             onChanged: ref.read(loginFormProvider.notifier).onPasswordChange,
             onFieldSubmitted: (value) =>
                 ref.read(loginFormProvider.notifier).onFormSubmit(),
-            errorMessage:
-                loginForm.isPosting ? loginForm.password.errorMessage : null,
+            errorMessage: loginForm.password.errorMessage,
           ),
           const SizedBox(height: 30),
           SizedBox(
@@ -50,7 +53,7 @@ class LoginForm extends ConsumerWidget {
               height: 60,
               child: CustomFilledButton(
                 text: 'Ingresar',
-                buttonColor: Colors.black,
+                buttonColor: Theme.of(context).primaryColor,
                 onPressed: loginForm.isPosting
                     ? null
                     : ref.read(loginFormProvider.notifier).onFormSubmit,

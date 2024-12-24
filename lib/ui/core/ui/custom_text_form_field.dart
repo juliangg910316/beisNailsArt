@@ -66,6 +66,7 @@ class CustomTextFormField extends StatelessWidget {
           label: label != null ? Text(label!) : null,
           hintText: hint,
           errorText: errorMessage,
+          errorStyle: const TextStyle(color: Colors.red),
           focusColor: colors.primary,
           // icon: Icon( Icons.supervised_user_circle_outlined, color: colors.primary, )
         ),

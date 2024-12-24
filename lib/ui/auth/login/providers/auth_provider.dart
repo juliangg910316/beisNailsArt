@@ -1,10 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../data/repositories/auth/auth_repository.dart';
 import '../../../../data/repositories/auth/auth_repository_impl.dart';
 import '../../../../data/services/local/key_value_storage.dart';
 import '../../../../data/services/local/key_value_storage_impl.dart';
-import '../../../../domain/models/user/user.dart';
 import '../../../../utils/auth_error.dart';
 
 enum AuthStatus { checking, auth, notAuth }
@@ -27,34 +29,35 @@ class AuthState {
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthRepository authRepository;
   final KeyValueStorageService keyValueStorageService;
+
   AuthNotifier(
       {required this.authRepository, required this.keyValueStorageService})
-      : super(AuthState()) {
-    checkAuthStatus();
-  }
+      : super(AuthState());
 
   Future<void> loginUser(String email, String password) async {
-    await Future.delayed(const Duration(milliseconds: 500));
     try {
-      final user = await authRepository.login(email, password);
-      _setLoggedUser('');
+      final response = await authRepository.login(email, password);
+      response.fold((failure) async {
+        logout(failure.message);
+      }, (data) async {
+        _setLoggedUser(data.session!.accessToken);
+        state = state.copyWith(user: data.user);
+      });
+    } on CustomException catch (e) {
+      logout(e.message);
+    } catch (e) {
+      logout((e as AuthException).message);
+    }
+  }
+
+  void registerUser(String email, String password) async {
+    try {
+      final authResponse = await authRepository.register(email, password);
+      log('authResponse: ${authResponse.session}');
     } on CustomException catch (e) {
       logout(e.message);
     } catch (e) {
       logout('Error no controlado');
-    }
-  }
-
-  void registerUser(String email, String password) async {}
-  void checkAuthStatus() async {
-    final token = await keyValueStorageService.getValue<String>('token');
-    if (token == null) return logout();
-
-    try {
-      final user = await authRepository.checkAuthStatus(token);
-      _setLoggedUser('');
-    } catch (e) {
-      logout();
     }
   }
 

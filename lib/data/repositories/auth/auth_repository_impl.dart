@@ -1,57 +1,41 @@
-import 'package:dio/dio.dart';
+import 'dart:developer';
 
-import '../../../domain/models/user/user.dart';
-import '../../../utils/auth_error.dart';
-import '../../services/api/model/user_mapper.dart';
+import 'package:dartz/dartz.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../error/failure.dart';
 import 'auth_repository.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
-  final dio = Dio(BaseOptions(baseUrl: 'http://localhost:3000'));
+  final SupabaseClient supabaseClient = Supabase.instance.client;
 
   @override
-  Future<User> checkAuthStatus(String token) async {
+  Future<Either<Failure, AuthResponse>> login(
+      String email, String password) async {
     try {
-      final response = await dio.get('/auth/check-status',
-          options: Options(headers: {'Authorization': 'Bearer $token'}));
-      final user = UserMapper.userJsonToEntity(response.data);
-      return user;
-    } on DioException catch (e) {
-      if (e.response?.statusCode == 401) {
-        throw CustomException('Token incorrecto');
-      }
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw CustomException('Error en la conexión');
-      }
-      throw Exception();
+      final response = await supabaseClient.auth
+          .signInWithPassword(email: email, password: password);
+      log('RESPONSE: $response');
+      return Right(response);
+    } on AuthException catch (e) {
+      return Left(Failure.buildFromException(e));
     } catch (e) {
-      throw Exception();
+      return Left(Failure.buildFromException(e as Exception));
     }
   }
 
   @override
-  Future<User> login(String email, String password) async {
-    try {
-      final response = await dio
-          .post('/auth/login', data: {'email': email, 'password': password});
-      final user = UserMapper.userJsonToEntity(response.data);
-      return user;
-    } on DioException catch (e) {
-      if (e.response?.statusCode == 401) {
-        throw CustomException(
-            e.response?.data['message'] ?? 'Cedenciales incorrectas');
-      }
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw CustomException('Error en la conexión');
-      }
-      throw Exception();
-    } catch (e) {
-      throw Exception();
-    }
+  Future<AuthResponse> register(String email, String password) async {
+    return await supabaseClient.auth.signUp(email: email, password: password);
   }
 
   @override
-  Future<User> register(String email, String password, String fullname) {
-    // TODO: implement register
-    throw UnimplementedError();
+  Future<void> logout() async {
+    await supabaseClient.auth.signOut();
+  }
+
+  @override
+  String? getCurrentUserEmail() {
+    return supabaseClient.auth.currentUser?.email;
   }
 }

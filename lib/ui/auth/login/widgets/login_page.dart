@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/ui/geometrical_background.dart';
+import '../../../core/core.dart';
 import 'login_form.dart';
 
 class LoginPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 80),
             // Icon Banner
             const Icon(
-              Icons.production_quantity_limits_rounded,
+              Icons.bed_outlined,
               color: Colors.white,
               size: 100,
             ),
