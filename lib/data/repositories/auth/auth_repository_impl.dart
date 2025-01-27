@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
+import 'package:logging/logging.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../error/failure.dart';
@@ -8,6 +7,7 @@ import 'auth_repository.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   final SupabaseClient supabaseClient = Supabase.instance.client;
+  final _log = Logger('AuthRepositoryImpl');
 
   @override
   Future<Either<Failure, AuthResponse>> login(
@@ -15,7 +15,7 @@ class AuthRepositoryImpl extends AuthRepository {
     try {
       final response = await supabaseClient.auth
           .signInWithPassword(email: email, password: password);
-      log('RESPONSE: $response');
+      _log.info(response);
       return Right(response);
     } on AuthException catch (e) {
       return Left(Failure.buildFromException(e));

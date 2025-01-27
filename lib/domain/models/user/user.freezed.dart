@@ -20,11 +20,11 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  /// The user's name.
   String get name => throw _privateConstructorUsedError;
-
-  /// The user's picture URL.
-  String get picture => throw _privateConstructorUsedError;
+  String? get picture => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  DateTime? get birthDate => throw _privateConstructorUsedError;
+  Role get role => throw _privateConstructorUsedError;
 
   /// Serializes this User to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,12 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String name, String picture});
+  $Res call(
+      {String name,
+      String? picture,
+      String? address,
+      DateTime? birthDate,
+      Role role});
 }
 
 /// @nodoc
@@ -59,17 +64,32 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? name = null,
-    Object? picture = null,
+    Object? picture = freezed,
+    Object? address = freezed,
+    Object? birthDate = freezed,
+    Object? role = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      picture: null == picture
+      picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      birthDate: freezed == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as Role,
     ) as $Val);
   }
 }
@@ -81,7 +101,12 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String picture});
+  $Res call(
+      {String name,
+      String? picture,
+      String? address,
+      DateTime? birthDate,
+      Role role});
 }
 
 /// @nodoc
@@ -97,17 +122,32 @@ class __$$UserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? picture = null,
+    Object? picture = freezed,
+    Object? address = freezed,
+    Object? birthDate = freezed,
+    Object? role = null,
   }) {
     return _then(_$UserImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      picture: null == picture
+      picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      birthDate: freezed == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as Role,
     ));
   }
 }
@@ -115,22 +155,30 @@ class __$$UserImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserImpl implements _User {
-  const _$UserImpl({required this.name, required this.picture});
+  const _$UserImpl(
+      {required this.name,
+      required this.picture,
+      required this.address,
+      required this.birthDate,
+      required this.role});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
 
-  /// The user's name.
   @override
   final String name;
-
-  /// The user's picture URL.
   @override
-  final String picture;
+  final String? picture;
+  @override
+  final String? address;
+  @override
+  final DateTime? birthDate;
+  @override
+  final Role role;
 
   @override
   String toString() {
-    return 'User(name: $name, picture: $picture)';
+    return 'User(name: $name, picture: $picture, address: $address, birthDate: $birthDate, role: $role)';
   }
 
   @override
@@ -139,12 +187,17 @@ class _$UserImpl implements _User {
         (other.runtimeType == runtimeType &&
             other is _$UserImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.picture, picture) || other.picture == picture));
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.birthDate, birthDate) ||
+                other.birthDate == birthDate) &&
+            (identical(other.role, role) || other.role == role));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, picture);
+  int get hashCode =>
+      Object.hash(runtimeType, name, picture, address, birthDate, role);
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -164,17 +217,24 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String name, required final String picture}) = _$UserImpl;
+      {required final String name,
+      required final String? picture,
+      required final String? address,
+      required final DateTime? birthDate,
+      required final Role role}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
-  /// The user's name.
   @override
   String get name;
-
-  /// The user's picture URL.
   @override
-  String get picture;
+  String? get picture;
+  @override
+  String? get address;
+  @override
+  DateTime? get birthDate;
+  @override
+  Role get role;
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
