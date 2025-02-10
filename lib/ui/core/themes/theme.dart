@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../ui/tag_chip.dart';
 import 'colors.dart';
@@ -48,6 +49,7 @@ abstract final class AppTheme {
     brightness: Brightness.light,
     colorScheme: AppColors.lightColorScheme,
     textTheme: _textTheme,
+    appBarTheme: _appBarTheme,
     inputDecorationTheme: _inputDecorationTheme,
     extensions: [
       TagChipTheme(
@@ -55,6 +57,17 @@ abstract final class AppTheme {
         onChipColor: Colors.white,
       ),
     ],
+  );
+
+  static final AppBarTheme _appBarTheme = AppBarTheme(
+    backgroundColor: AppColors.main,
+    titleTextStyle: GoogleFonts.poppins(
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+      color: AppColors.white,
+    ),
+    centerTitle: true,
+    iconTheme: const IconThemeData(color: AppColors.white),
   );
 
   static ThemeData darkTheme = ThemeData(
