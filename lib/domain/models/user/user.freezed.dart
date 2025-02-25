@@ -24,6 +24,8 @@ mixin _$User {
   String? get name => throw _privateConstructorUsedError;
   String? get picture => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date_of_birth')
   DateTime? get birthDate => throw _privateConstructorUsedError;
   Role get role => throw _privateConstructorUsedError;
 
@@ -46,7 +48,8 @@ abstract class $UserCopyWith<$Res> {
       String? name,
       String? picture,
       String? address,
-      DateTime? birthDate,
+      String? gender,
+      @JsonKey(name: 'date_of_birth') DateTime? birthDate,
       Role role});
 }
 
@@ -69,6 +72,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? name = freezed,
     Object? picture = freezed,
     Object? address = freezed,
+    Object? gender = freezed,
     Object? birthDate = freezed,
     Object? role = null,
   }) {
@@ -88,6 +92,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String?,
       birthDate: freezed == birthDate
           ? _value.birthDate
@@ -113,7 +121,8 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? name,
       String? picture,
       String? address,
-      DateTime? birthDate,
+      String? gender,
+      @JsonKey(name: 'date_of_birth') DateTime? birthDate,
       Role role});
 }
 
@@ -133,6 +142,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? picture = freezed,
     Object? address = freezed,
+    Object? gender = freezed,
     Object? birthDate = freezed,
     Object? role = null,
   }) {
@@ -153,6 +163,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
       birthDate: freezed == birthDate
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
@@ -170,10 +184,11 @@ class __$$UserImplCopyWithImpl<$Res>
 class _$UserImpl implements _User {
   const _$UserImpl(
       {this.id = '0',
-      this.name = null,
-      this.picture = null,
-      this.address = null,
-      this.birthDate = null,
+      this.name,
+      this.picture,
+      this.address,
+      this.gender,
+      @JsonKey(name: 'date_of_birth') this.birthDate,
       this.role = Role.client});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
@@ -183,16 +198,15 @@ class _$UserImpl implements _User {
   @JsonKey()
   final String id;
   @override
-  @JsonKey()
   final String? name;
   @override
-  @JsonKey()
   final String? picture;
   @override
-  @JsonKey()
   final String? address;
   @override
-  @JsonKey()
+  final String? gender;
+  @override
+  @JsonKey(name: 'date_of_birth')
   final DateTime? birthDate;
   @override
   @JsonKey()
@@ -200,7 +214,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, picture: $picture, address: $address, birthDate: $birthDate, role: $role)';
+    return 'User(id: $id, name: $name, picture: $picture, address: $address, gender: $gender, birthDate: $birthDate, role: $role)';
   }
 
   @override
@@ -212,6 +226,7 @@ class _$UserImpl implements _User {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.picture, picture) || other.picture == picture) &&
             (identical(other.address, address) || other.address == address) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.birthDate, birthDate) ||
                 other.birthDate == birthDate) &&
             (identical(other.role, role) || other.role == role));
@@ -219,8 +234,8 @@ class _$UserImpl implements _User {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, picture, address, birthDate, role);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, picture, address, gender, birthDate, role);
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -244,7 +259,8 @@ abstract class _User implements User {
       final String? name,
       final String? picture,
       final String? address,
-      final DateTime? birthDate,
+      final String? gender,
+      @JsonKey(name: 'date_of_birth') final DateTime? birthDate,
       final Role role}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
@@ -258,6 +274,9 @@ abstract class _User implements User {
   @override
   String? get address;
   @override
+  String? get gender;
+  @override
+  @JsonKey(name: 'date_of_birth')
   DateTime? get birthDate;
   @override
   Role get role;

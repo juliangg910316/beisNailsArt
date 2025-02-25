@@ -8,12 +8,13 @@ part of 'user.dart';
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       id: json['id'] as String? ?? '0',
-      name: json['name'] as String? ?? null,
-      picture: json['picture'] as String? ?? null,
-      address: json['address'] as String? ?? null,
-      birthDate: json['birthDate'] == null
+      name: json['name'] as String?,
+      picture: json['picture'] as String?,
+      address: json['address'] as String?,
+      gender: json['gender'] as String?,
+      birthDate: json['date_of_birth'] == null
           ? null
-          : DateTime.parse(json['birthDate'] as String),
+          : DateTime.parse(json['date_of_birth'] as String),
       role: $enumDecodeNullable(_$RoleEnumMap, json['role']) ?? Role.client,
     );
 
@@ -23,7 +24,8 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'name': instance.name,
       'picture': instance.picture,
       'address': instance.address,
-      'birthDate': instance.birthDate?.toIso8601String(),
+      'gender': instance.gender,
+      'date_of_birth': instance.birthDate?.toIso8601String(),
       'role': _$RoleEnumMap[instance.role]!,
     };
 

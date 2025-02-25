@@ -21,6 +21,7 @@ mixin _$LoginState {
   bool get isValid => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -40,7 +41,8 @@ abstract class $LoginStateCopyWith<$Res> {
       bool isFormPosted,
       bool isValid,
       Email email,
-      Password password});
+      Password password,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? isValid = null,
     Object? email = null,
     Object? password = null,
+    Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
       isPosting: null == isPosting
@@ -85,6 +88,10 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -102,7 +109,8 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       bool isFormPosted,
       bool isValid,
       Email email,
-      Password password});
+      Password password,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -123,6 +131,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? isValid = null,
     Object? email = null,
     Object? password = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$LoginStateImpl(
       isPosting: null == isPosting
@@ -145,6 +154,10 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -157,7 +170,8 @@ class _$LoginStateImpl implements _LoginState {
       this.isFormPosted = false,
       this.isValid = false,
       this.email = const Email.pure(),
-      this.password = const Password.pure()});
+      this.password = const Password.pure(),
+      this.errorMessage = ''});
 
   @override
   @JsonKey()
@@ -174,10 +188,13 @@ class _$LoginStateImpl implements _LoginState {
   @override
   @JsonKey()
   final Password password;
+  @override
+  @JsonKey()
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'LoginState(isPosting: $isPosting, isFormPosted: $isFormPosted, isValid: $isValid, email: $email, password: $password)';
+    return 'LoginState(isPosting: $isPosting, isFormPosted: $isFormPosted, isValid: $isValid, email: $email, password: $password, errorMessage: $errorMessage)';
   }
 
   @override
@@ -192,12 +209,14 @@ class _$LoginStateImpl implements _LoginState {
             (identical(other.isValid, isValid) || other.isValid == isValid) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isPosting, isFormPosted, isValid, email, password);
+  int get hashCode => Object.hash(runtimeType, isPosting, isFormPosted, isValid,
+      email, password, errorMessage);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -214,7 +233,8 @@ abstract class _LoginState implements LoginState {
       final bool isFormPosted,
       final bool isValid,
       final Email email,
-      final Password password}) = _$LoginStateImpl;
+      final Password password,
+      final String errorMessage}) = _$LoginStateImpl;
 
   @override
   bool get isPosting;
@@ -226,6 +246,8 @@ abstract class _LoginState implements LoginState {
   Email get email;
   @override
   Password get password;
+  @override
+  String get errorMessage;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

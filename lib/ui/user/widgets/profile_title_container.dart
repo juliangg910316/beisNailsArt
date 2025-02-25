@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logging/logging.dart';
 
 import '../../core/core.dart';
 import '../providers/user_provider.dart';
@@ -9,7 +10,10 @@ class ProfileTitleContainer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final logger = Logger('ProfileTitleContainer');
     final user = ref.watch(profileViewModelProvider);
+    final profile = user.value?.profile;
+    logger.info('profile: ${profile?.toJson()}');
     return Stack(
       children: [
         Container(
@@ -39,7 +43,7 @@ class ProfileTitleContainer extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      user.value?.profile?.name ?? '',
+                      profile?.name ?? '',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -49,7 +53,7 @@ class ProfileTitleContainer extends ConsumerWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      '',
+                      profile?.id ?? '',
                       style:
                           const TextStyle(color: Colors.white70, fontSize: 14),
                       overflow: TextOverflow.ellipsis,

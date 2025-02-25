@@ -1,28 +1,41 @@
+import 'package:beis_nails_art/ui/auth/login/providers/auth_prov.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 
 import '../../../core/core.dart';
-import '../providers/auth_provider.dart';
-import '../providers/login_form_provider.dart';
+import '../providers/login_provider.dart';
 
 class LoginForm extends ConsumerWidget {
   const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final loginForm = ref.watch(loginFormProvider);
+    final logger = Logger('LoginForm');
+    final loginForm = ref.watch(loginProviderProvider);
 
     final textStyles = Theme.of(context).textTheme;
 
-    ref.listen(authProvider, (previous, next) {
-      if (next.status == AuthStatus.auth) {
-        context.go('/');
+    ref.listen(authProvProvider, (previous, next) {
+      logger.info(next.value);
+      if (next is AsyncError) {
+        logger.info('isError: ${next.error.toString()}');
+        showSnackbar(context, next.error.toString());
       }
 
-      if (next.errorMessage.isEmpty) return;
+      if (next is AsyncData) {
+        logger.info('isData');
+        if (next.value?.isRegisterSuccessfully == true) {
+          context.go('/');
+        } else if (next.value?.isSignInSuccessfully == true) {
+          context.go('/');
+        }
+      }
 
-      showSnackbar(context, next.errorMessage);
+      // if (next.value.authResponse..isEmpty) return;
+
+      // showSnackbar(context, next.errorMessage);
     });
 
     return Padding(
@@ -35,16 +48,17 @@ class LoginForm extends ConsumerWidget {
           CustomTextFormField(
             label: 'Correo',
             keyboardType: TextInputType.emailAddress,
-            onChanged: ref.read(loginFormProvider.notifier).onEmailChange,
+            onChanged: ref.read(loginProviderProvider.notifier).onEmailChange,
             errorMessage: loginForm.email.errorMessage,
           ),
           const SizedBox(height: 30),
           CustomTextFormField(
             label: 'Contraseña',
             obscureText: true,
-            onChanged: ref.read(loginFormProvider.notifier).onPasswordChange,
+            onChanged:
+                ref.read(loginProviderProvider.notifier).onPasswordChange,
             onFieldSubmitted: (value) =>
-                ref.read(loginFormProvider.notifier).onFormSubmit(),
+                ref.read(loginProviderProvider.notifier).onFormSubmit(),
             errorMessage: loginForm.password.errorMessage,
           ),
           const SizedBox(height: 30),
@@ -56,7 +70,7 @@ class LoginForm extends ConsumerWidget {
                 buttonColor: Theme.of(context).primaryColor,
                 onPressed: loginForm.isPosting
                     ? null
-                    : ref.read(loginFormProvider.notifier).onFormSubmit,
+                    : ref.read(loginProviderProvider.notifier).onFormSubmit,
               )),
           const Spacer(flex: 2),
           Row(

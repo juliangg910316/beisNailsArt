@@ -13,10 +13,11 @@ part 'user.g.dart';
 abstract class User with _$User {
   const factory User({
     @Default('0') String id,
-    @Default(null) String? name,
-    @Default(null) String? picture,
-    @Default(null) String? address,
-    @Default(null) DateTime? birthDate,
+    String? name,
+    String? picture,
+    String? address,
+    String? gender,
+    @JsonKey(name: 'date_of_birth') DateTime? birthDate,
     @Default(Role.client) Role role,
   }) = _User;
 

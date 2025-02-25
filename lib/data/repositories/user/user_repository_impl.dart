@@ -19,19 +19,17 @@ class UserRepositoryImpl {
       Supabase.instance.client.from('profile');
   final _log = Logger('UserRepositoryImpl');
 
-  @override
   Future<Either<Failure, user.User>> createUser(user.User newUser) async {
+    _log.info('createUser: ${newUser.toJson()}');
     try {
-      final response = await supabaseClient.insert(newUser.toJson());
-      _log.info(response);
-      final userNew = user.User.fromJson((response as List<dynamic>)[0]);
-      return Right(userNew);
+      await supabaseClient.insert(newUser.toJson());
+      return Right(newUser);
     } catch (e) {
+      _log.info('error: $e');
       return Left(Failure.buildFromException(e as Exception));
     }
   }
 
-  @override
   Future<Either<Failure, user.User>> getUser() async {
     try {
       final userId = Supabase.instance.client.auth.currentUser?.id ?? '';
@@ -44,13 +42,11 @@ class UserRepositoryImpl {
     }
   }
 
-  @override
   Future<Either<Failure, void>> updateUser(user.User user) {
     // TODO: implement updateUser
     throw UnimplementedError();
   }
 
-  @override
   Future<Either<Failure, void>> deleteUser(user.User user) {
     // TODO: implement deleteUser
     throw UnimplementedError();
