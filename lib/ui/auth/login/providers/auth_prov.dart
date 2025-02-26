@@ -13,6 +13,17 @@ class AuthProv extends _$AuthProv {
 
   @override
   FutureOr<model.AuthState> build() async {
+    final session = Supabase.instance.client.auth.currentSession;
+    if (session != null) {
+      final authResponse = AuthResponse(
+        session: session,
+        user: session.user,
+      );
+      return model.AuthState(
+        authResponse: authResponse,
+        isSignInSuccessfully: true,
+      );
+    }
     return const model.AuthState();
   }
 
