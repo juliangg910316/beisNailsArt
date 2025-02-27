@@ -63,6 +63,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.main,
       extendBody: true, //to make floating action button notch transparent
       bottomNavigationBar: StylishBottomBar(
         option: AnimatedBarOptions(
