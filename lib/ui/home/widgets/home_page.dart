@@ -8,7 +8,7 @@ import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 import '../../calendar/widgets/calendar_page.dart';
 import '../../core/core.dart';
 import '../../info/widgets/info_page.dart';
-import '../../promotion/widgets/promotion_page.dart';
+import '../../services/widgets/services_page.dart';
 import '../../user/widgets/profile_page.dart';
 import 'exit_dialog.dart';
 
@@ -72,52 +72,53 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomBarItem(
             icon: const Icon(
-              Icons.account_balance_wallet_outlined,
+              Icons.home_outlined,
             ),
-            selectedIcon: const Icon(Icons.account_balance_wallet),
+            selectedIcon: const Icon(Icons.home),
             selectedColor: AppColors.main,
             unSelectedColor: Colors.grey,
-            title: const Text('Cuenta', style: TextStyle(fontSize: 12)),
+            title: const Text('Home', style: TextStyle(fontSize: 12)),
           ),
           BottomBarItem(
             icon: const Padding(
               padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.request_quote_outlined),
+              child: Icon(Icons.spa_outlined),
             ),
             selectedIcon: const Padding(
               padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.request_quote),
+              child: Icon(Icons.spa),
             ),
             selectedColor: AppColors.main,
             title: const Padding(
               padding: EdgeInsets.only(right: 16.0),
-              child: Text('Solicitudes', style: TextStyle(fontSize: 12)),
+              child: Text('Servicios', style: TextStyle(fontSize: 12)),
             ),
           ),
           BottomBarItem(
-              icon: const Padding(
-                padding: EdgeInsets.only(left: 16.0),
-                child: Icon(Icons.account_balance_outlined),
-              ),
-              selectedIcon: const Padding(
-                padding: EdgeInsets.only(left: 16.0),
-                child: Icon(Icons.account_balance),
-              ),
-              selectedColor: AppColors.main,
-              title: const Padding(
-                padding: EdgeInsets.only(left: 8.0),
-                child: Text('Beneficiarios', style: TextStyle(fontSize: 12)),
-              )),
+            icon: const Padding(
+              padding: EdgeInsets.only(right: 16.0),
+              child: Icon(Icons.calendar_month_outlined),
+            ),
+            selectedIcon: const Padding(
+              padding: EdgeInsets.only(right: 16.0),
+              child: Icon(Icons.calendar_month),
+            ),
+            selectedColor: AppColors.main,
+            title: const Padding(
+              padding: EdgeInsets.only(right: 16.0),
+              child: Text('Citas', style: TextStyle(fontSize: 12)),
+            ),
+          ),
           BottomBarItem(
               icon: const Icon(Icons.person_outline),
               selectedIcon: const Icon(Icons.person),
               selectedColor: AppColors.main,
               title: const Text('Perfil', style: TextStyle(fontSize: 12))),
         ],
-        hasNotch: true,
-        fabLocation: StylishBarFabLocation.center,
+        // hasNotch: true,
+        // fabLocation: StylishBarFabLocation.center,
         currentIndex: selected,
-        notchStyle: NotchStyle.circle,
+        // notchStyle: NotchStyle.circle,
         onTap: (index) {
           if (index == selected) return;
           controller.animateToPage(index,
@@ -127,16 +128,16 @@ class _HomePageState extends State<HomePage> {
           });
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        shape: const CircleBorder(),
-        backgroundColor: AppColors.main,
-        child: const Icon(
-          Icons.qr_code_scanner_outlined,
-          color: Colors.white,
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   shape: const CircleBorder(),
+      //   backgroundColor: AppColors.main,
+      //   child: const Icon(
+      //     Icons.qr_code_scanner_outlined,
+      //     color: Colors.white,
+      //   ),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: AnnotatedRegion(
         value: const SystemUiOverlayStyle(statusBarColor: AppColors.main),
         child: SafeArea(
@@ -144,8 +145,8 @@ class _HomePageState extends State<HomePage> {
             controller: controller,
             children: [
               const InfoPage(),
+              const ServicesPage(),
               const CalendarPage(),
-              const PromotionPage(),
               const ProfilePage(),
             ],
             onPageChanged: (index) {

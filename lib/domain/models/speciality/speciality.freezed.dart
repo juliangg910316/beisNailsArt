@@ -22,6 +22,7 @@ Speciality _$SpecialityFromJson(Map<String, dynamic> json) {
 mixin _$Speciality {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
 
   /// Serializes this Speciality to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +40,7 @@ abstract class $SpecialityCopyWith<$Res> {
           Speciality value, $Res Function(Speciality) then) =
       _$SpecialityCopyWithImpl<$Res, Speciality>;
   @useResult
-  $Res call({int id, String name});
+  $Res call({int id, String name, String icon});
 }
 
 /// @nodoc
@@ -59,6 +60,7 @@ class _$SpecialityCopyWithImpl<$Res, $Val extends Speciality>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? icon = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -68,6 +70,10 @@ class _$SpecialityCopyWithImpl<$Res, $Val extends Speciality>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +87,7 @@ abstract class _$$SpecialityImplCopyWith<$Res>
       __$$SpecialityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name});
+  $Res call({int id, String name, String icon});
 }
 
 /// @nodoc
@@ -99,6 +105,7 @@ class __$$SpecialityImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? icon = null,
   }) {
     return _then(_$SpecialityImpl(
       id: null == id
@@ -109,6 +116,10 @@ class __$$SpecialityImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -116,7 +127,8 @@ class __$$SpecialityImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SpecialityImpl implements _Speciality {
-  const _$SpecialityImpl({required this.id, required this.name});
+  const _$SpecialityImpl(
+      {required this.id, required this.name, this.icon = ''});
 
   factory _$SpecialityImpl.fromJson(Map<String, dynamic> json) =>
       _$$SpecialityImplFromJson(json);
@@ -125,10 +137,13 @@ class _$SpecialityImpl implements _Speciality {
   final int id;
   @override
   final String name;
+  @override
+  @JsonKey()
+  final String icon;
 
   @override
   String toString() {
-    return 'Speciality(id: $id, name: $name)';
+    return 'Speciality(id: $id, name: $name, icon: $icon)';
   }
 
   @override
@@ -137,12 +152,13 @@ class _$SpecialityImpl implements _Speciality {
         (other.runtimeType == runtimeType &&
             other is _$SpecialityImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.icon, icon) || other.icon == icon));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, name, icon);
 
   /// Create a copy of Speciality
   /// with the given fields replaced by the non-null parameter values.
@@ -162,7 +178,9 @@ class _$SpecialityImpl implements _Speciality {
 
 abstract class _Speciality implements Speciality {
   const factory _Speciality(
-      {required final int id, required final String name}) = _$SpecialityImpl;
+      {required final int id,
+      required final String name,
+      final String icon}) = _$SpecialityImpl;
 
   factory _Speciality.fromJson(Map<String, dynamic> json) =
       _$SpecialityImpl.fromJson;
@@ -171,6 +189,8 @@ abstract class _Speciality implements Speciality {
   int get id;
   @override
   String get name;
+  @override
+  String get icon;
 
   /// Create a copy of Speciality
   /// with the given fields replaced by the non-null parameter values.

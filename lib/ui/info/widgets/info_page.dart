@@ -1,85 +1,61 @@
+import 'package:beis_nails_art/config/constants.dart';
 import 'package:beis_nails_art/ui/user/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 
 import '../../core/core.dart';
 
-class InfoPage extends ConsumerStatefulWidget {
+class InfoPage extends ConsumerWidget {
   const InfoPage({super.key});
 
   @override
-  ConsumerState<InfoPage> createState() => _InfoPageState();
-}
-
-class _InfoPageState extends ConsumerState<InfoPage> {
-  final logger = Logger('InfoPage');
-  late ScrollController _scrollController;
-  late double expandRatio;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = ScrollController();
-    expandRatio = 0.0;
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final profile = ref.watch(profileViewModelProvider).value;
+    final logger = Logger('InfoPage');
 
     return Scaffold(
       body: CustomScrollView(
-        controller: _scrollController,
         slivers: [
           // Custom AppBar with greeting
           SliverAppBar(
             expandedHeight: 150,
             pinned: true,
             centerTitle: false,
-            title: LayoutBuilder(builder: (context, constraints) {
-              logger.info('expandRatio: $expandRatio');
-              return AnimatedOpacity(
-                duration: const Duration(milliseconds: 100),
-                opacity: 1.0 - expandRatio,
-                child: Text(
-                  'Hello ${profile?.profile?.name ?? 'Guest'}! 👋',
-                  style: const TextStyle(
-                    color: Colors.white,
-                  ),
+            title: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Hola ${profile?.profile?.name ?? 'Cliente'}! 👋',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
                 ),
-              );
-            }),
+              ),
+            ),
             flexibleSpace: LayoutBuilder(
               builder: (context, constraints) {
-                setState(() {
-                  expandRatio = ((constraints.maxHeight - kToolbarHeight) /
-                          (150 - kToolbarHeight))
-                      .clamp(0.0, 1.0);
-                });
+                final double expandRatio =
+                    ((constraints.maxHeight - kToolbarHeight) /
+                            (80 - kToolbarHeight))
+                        .clamp(0.0, 1.0);
                 return FlexibleSpaceBar(
                   centerTitle: false,
-                  titlePadding: const EdgeInsets.only(left: 32, bottom: 16),
+                  titlePadding: const EdgeInsets.only(left: 32, top: 40),
                   title: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 100),
+                    duration: const Duration(milliseconds: 200),
                     opacity: expandRatio,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Hello ${profile?.profile?.name ?? 'Guest'}! 👋',
-                          style: const TextStyle(color: Colors.white),
-                        ),
+                        // Text(
+                        //   'Hello ${profile?.profile?.name ?? 'Guest'}! 👋',
+                        //   style: const TextStyle(color: Colors.white),
+                        // ),
                         const Text(
-                          'Welcome to Bei Salon',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
+                          'Bienvenido al Salon de Bei',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ],
                     ),
@@ -101,64 +77,51 @@ class _InfoPageState extends ConsumerState<InfoPage> {
           // Beauty Care Tips Section
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Bei Salon',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    height: 180,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: beautyTips.length,
-                      itemBuilder: (context, index) {
-                        final tip = beautyTips[index];
-                        return Container(
-                          width: 280,
-                          margin: const EdgeInsets.only(right: 16),
-                          child: Card(
-                            elevation: 4,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    tip.title,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    tip.description,
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.black87,
-                                    ),
-                                    maxLines: 4,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
+              padding: const EdgeInsets.only(left: 8.0, top: 8.0, right: 8.0),
+              child: SizedBox(
+                height: 180,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: Constants.beautyTips.length,
+                  itemBuilder: (context, index) {
+                    final tip = Constants.beautyTips[index];
+                    return Container(
+                      width: 280,
+                      margin: const EdgeInsets.only(right: 16),
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                tip.title,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
+                              const SizedBox(height: 8),
+                              Text(
+                                tip.description,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black87,
+                                ),
+                                maxLines: 4,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
                           ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ),
@@ -171,7 +134,7 @@ class _InfoPageState extends ConsumerState<InfoPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Our Services',
+                    'Nuestros Servicios',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -183,14 +146,14 @@ class _InfoPageState extends ConsumerState<InfoPage> {
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 1.5,
-                      crossAxisSpacing: 16,
+                      crossAxisCount: 4,
+                      childAspectRatio: 0.9,
+                      crossAxisSpacing: 8,
                       mainAxisSpacing: 16,
                     ),
-                    itemCount: services.length,
+                    itemCount: Constants.specialities.length,
                     itemBuilder: (context, index) {
-                      final service = services[index];
+                      final specialities = Constants.specialities[index];
                       return Card(
                         elevation: 2,
                         shape: RoundedRectangleBorder(
@@ -201,7 +164,8 @@ class _InfoPageState extends ConsumerState<InfoPage> {
                             borderRadius: BorderRadius.circular(12),
                             gradient: LinearGradient(
                               colors: [
-                                service.color.withOpacity(0.2),
+                                Constants.specialitiesColors[index]
+                                    .withOpacity(0.2),
                                 Colors.white
                               ],
                               begin: Alignment.topLeft,
@@ -209,26 +173,37 @@ class _InfoPageState extends ConsumerState<InfoPage> {
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(12.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 16.0, horizontal: 8),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
+                                SvgPicture.asset(
+                                  specialities.icon,
+                                  height: 40,
+                                  width: 40,
+                                  // colorFilter: ColorFilter.mode(
+                                  //   service.color,
+                                  //   BlendMode.srcIn,
+                                  // ),
+                                ),
+                                const SizedBox(height: 8),
                                 Text(
-                                  service.name,
+                                  specialities.name,
                                   style: const TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  '\$${service.price}',
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
+                                // const SizedBox(height: 4),
+                                // Text(
+                                //   '\$${service.price.toStringAsFixed(2)}',
+                                //   style: const TextStyle(
+                                //     fontSize: 16,
+                                //     color: Colors.white,
+                                //     fontWeight: FontWeight.w500,
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
@@ -248,84 +223,111 @@ class _InfoPageState extends ConsumerState<InfoPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Our Team',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Nuestros Equipo',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Icon(Icons.arrow_forward)
+                    ],
                   ),
                   const SizedBox(height: 16),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: staffMembers.length,
-                    itemBuilder: (context, index) {
-                      final staff = staffMembers[index];
-                      return Card(
-                        margin: const EdgeInsets.only(bottom: 16),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 40,
-                                backgroundImage: NetworkImage(staff.photoUrl),
-                              ),
-                              const SizedBox(width: 16),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      staff.name,
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      staff.role,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.grey[600],
-                                      ),
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Row(
-                                      children: [
-                                        ...List.generate(
-                                          5,
-                                          (index) => Icon(
-                                            index < staff.rating
-                                                ? Icons.star
-                                                : Icons.star_border,
-                                            color: Colors.amber,
-                                            size: 20,
-                                          ),
-                                        ),
-                                        const SizedBox(width: 8),
-                                        Text(
-                                          '(${staff.reviewCount} reviews)',
-                                          style: TextStyle(
-                                            color: Colors.grey[600],
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                  SizedBox(
+                    height: 280, // Adjust height as needed
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: staffMembers.length,
+                      itemBuilder: (context, index) {
+                        final staff = staffMembers[index];
+                        return Container(
+                          width: 180, // Adjust width as needed
+                          margin: const EdgeInsets.only(right: 16),
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(12),
+                                  ),
+                                  child: Image.asset(
+                                    staff.photoUrl,
+                                    height: 150,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        staff.name,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        staff.role,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.grey[600],
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          ...List.generate(
+                                            5,
+                                            (index) => Icon(
+                                              index < staff.rating
+                                                  ? ((staff.rating - index >
+                                                              0) &&
+                                                          (staff.rating -
+                                                                  index <
+                                                              1))
+                                                      ? Icons.star_half
+                                                      : Icons.star
+                                                  : Icons.star_border,
+                                              color: Colors.amber,
+                                              size: 16,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        '(${staff.reviewCount} reviews)',
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -337,27 +339,11 @@ class _InfoPageState extends ConsumerState<InfoPage> {
   }
 }
 
-// Models and sample data
-class BeautyTip {
-  final String title;
-  final String description;
-
-  BeautyTip({required this.title, required this.description});
-}
-
-class Service {
-  final String name;
-  final double price;
-  final Color color;
-
-  Service({required this.name, required this.price, required this.color});
-}
-
 class StaffMember {
   final String name;
   final String role;
   final String photoUrl;
-  final int rating;
+  final double rating;
   final int reviewCount;
 
   StaffMember({
@@ -370,51 +356,26 @@ class StaffMember {
 }
 
 // Sample data
-final beautyTips = [
-  BeautyTip(
-    title: 'Nail Care Basics',
-    description:
-        'Keep your nails healthy by moisturizing your cuticles daily and using a glass nail file for shaping.',
-  ),
-  BeautyTip(
-    title: 'Long-lasting Manicure',
-    description:
-        'Apply a base coat, two thin layers of polish, and a top coat. Let each layer dry completely.',
-  ),
-  BeautyTip(
-    title: 'Natural Nail Strengthening',
-    description:
-        'Mix olive oil and lemon juice for a natural nail strengthening treatment.',
-  ),
-];
-
-final services = [
-  Service(name: 'Classic Manicure', price: 25.0, color: Colors.pink),
-  Service(name: 'Gel Manicure', price: 35.0, color: Colors.purple),
-  Service(name: 'Nail Art Design', price: 45.0, color: Colors.blue),
-  Service(name: 'Pedicure Deluxe', price: 40.0, color: Colors.teal),
-];
-
 final staffMembers = [
   StaffMember(
-    name: 'Emma Johnson',
-    role: 'Senior Nail Artist',
-    photoUrl: 'https://example.com/emma.jpg', // Replace with actual photo URL
+    name: 'Beidis Viera',
+    role: 'Manicurista',
+    photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
     rating: 5,
     reviewCount: 128,
   ),
   StaffMember(
-    name: 'Sophie Chen',
-    role: 'Nail Art Specialist',
-    photoUrl: 'https://example.com/sophie.jpg', // Replace with actual photo URL
+    name: 'Sonia Rodriguez',
+    role: 'Peluquera',
+    photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
     rating: 4,
     reviewCount: 95,
   ),
   StaffMember(
-    name: 'Maria Garcia',
+    name: 'Peinadora',
     role: 'Manicurist',
-    photoUrl: 'https://example.com/maria.jpg', // Replace with actual photo URL
-    rating: 5,
+    photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
+    rating: 4.5,
     reviewCount: 156,
   ),
 ];

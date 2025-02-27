@@ -10,10 +10,12 @@ _$SpecialityImpl _$$SpecialityImplFromJson(Map<String, dynamic> json) =>
     _$SpecialityImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
+      icon: json['icon'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$SpecialityImplToJson(_$SpecialityImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'icon': instance.icon,
     };

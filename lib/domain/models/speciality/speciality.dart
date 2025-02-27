@@ -8,6 +8,7 @@ class Speciality with _$Speciality {
   const factory Speciality({
     required int id,
     required String name,
+    @Default('') String icon,
   }) = _Speciality;
 
   factory Speciality.fromJson(Map<String, dynamic> json) =>
