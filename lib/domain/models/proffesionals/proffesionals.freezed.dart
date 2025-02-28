@@ -21,8 +21,12 @@ Proffesional _$ProffesionalFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Proffesional {
   String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   Speciality get speciality => throw _privateConstructorUsedError;
   Map<String, String> get links => throw _privateConstructorUsedError;
+  String get photoUrl => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
+  int get reviewCount => throw _privateConstructorUsedError;
 
   /// Serializes this Proffesional to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +44,14 @@ abstract class $ProffesionalCopyWith<$Res> {
           Proffesional value, $Res Function(Proffesional) then) =
       _$ProffesionalCopyWithImpl<$Res, Proffesional>;
   @useResult
-  $Res call({String id, Speciality speciality, Map<String, String> links});
+  $Res call(
+      {String id,
+      String name,
+      Speciality speciality,
+      Map<String, String> links,
+      String photoUrl,
+      double rating,
+      int reviewCount});
 
   $SpecialityCopyWith<$Res> get speciality;
 }
@@ -61,13 +72,21 @@ class _$ProffesionalCopyWithImpl<$Res, $Val extends Proffesional>
   @override
   $Res call({
     Object? id = null,
+    Object? name = null,
     Object? speciality = null,
     Object? links = null,
+    Object? photoUrl = null,
+    Object? rating = null,
+    Object? reviewCount = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       speciality: null == speciality
           ? _value.speciality
@@ -77,6 +96,18 @@ class _$ProffesionalCopyWithImpl<$Res, $Val extends Proffesional>
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
+      photoUrl: null == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      reviewCount: null == reviewCount
+          ? _value.reviewCount
+          : reviewCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -99,7 +130,14 @@ abstract class _$$ProffesionalImplCopyWith<$Res>
       __$$ProffesionalImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, Speciality speciality, Map<String, String> links});
+  $Res call(
+      {String id,
+      String name,
+      Speciality speciality,
+      Map<String, String> links,
+      String photoUrl,
+      double rating,
+      int reviewCount});
 
   @override
   $SpecialityCopyWith<$Res> get speciality;
@@ -119,13 +157,21 @@ class __$$ProffesionalImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? name = null,
     Object? speciality = null,
     Object? links = null,
+    Object? photoUrl = null,
+    Object? rating = null,
+    Object? reviewCount = null,
   }) {
     return _then(_$ProffesionalImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       speciality: null == speciality
           ? _value.speciality
@@ -135,6 +181,18 @@ class __$$ProffesionalImplCopyWithImpl<$Res>
           ? _value._links
           : links // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
+      photoUrl: null == photoUrl
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      reviewCount: null == reviewCount
+          ? _value.reviewCount
+          : reviewCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -144,8 +202,12 @@ class __$$ProffesionalImplCopyWithImpl<$Res>
 class _$ProffesionalImpl implements _Proffesional {
   const _$ProffesionalImpl(
       {required this.id,
+      required this.name,
       required this.speciality,
-      required final Map<String, String> links})
+      required final Map<String, String> links,
+      this.photoUrl = '',
+      this.rating = 0,
+      this.reviewCount = 0})
       : _links = links;
 
   factory _$ProffesionalImpl.fromJson(Map<String, dynamic> json) =>
@@ -153,6 +215,8 @@ class _$ProffesionalImpl implements _Proffesional {
 
   @override
   final String id;
+  @override
+  final String name;
   @override
   final Speciality speciality;
   final Map<String, String> _links;
@@ -164,8 +228,18 @@ class _$ProffesionalImpl implements _Proffesional {
   }
 
   @override
+  @JsonKey()
+  final String photoUrl;
+  @override
+  @JsonKey()
+  final double rating;
+  @override
+  @JsonKey()
+  final int reviewCount;
+
+  @override
   String toString() {
-    return 'Proffesional(id: $id, speciality: $speciality, links: $links)';
+    return 'Proffesional(id: $id, name: $name, speciality: $speciality, links: $links, photoUrl: $photoUrl, rating: $rating, reviewCount: $reviewCount)';
   }
 
   @override
@@ -174,15 +248,28 @@ class _$ProffesionalImpl implements _Proffesional {
         (other.runtimeType == runtimeType &&
             other is _$ProffesionalImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.speciality, speciality) ||
                 other.speciality == speciality) &&
-            const DeepCollectionEquality().equals(other._links, _links));
+            const DeepCollectionEquality().equals(other._links, _links) &&
+            (identical(other.photoUrl, photoUrl) ||
+                other.photoUrl == photoUrl) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.reviewCount, reviewCount) ||
+                other.reviewCount == reviewCount));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, speciality, const DeepCollectionEquality().hash(_links));
+      runtimeType,
+      id,
+      name,
+      speciality,
+      const DeepCollectionEquality().hash(_links),
+      photoUrl,
+      rating,
+      reviewCount);
 
   /// Create a copy of Proffesional
   /// with the given fields replaced by the non-null parameter values.
@@ -203,8 +290,12 @@ class _$ProffesionalImpl implements _Proffesional {
 abstract class _Proffesional implements Proffesional {
   const factory _Proffesional(
       {required final String id,
+      required final String name,
       required final Speciality speciality,
-      required final Map<String, String> links}) = _$ProffesionalImpl;
+      required final Map<String, String> links,
+      final String photoUrl,
+      final double rating,
+      final int reviewCount}) = _$ProffesionalImpl;
 
   factory _Proffesional.fromJson(Map<String, dynamic> json) =
       _$ProffesionalImpl.fromJson;
@@ -212,9 +303,17 @@ abstract class _Proffesional implements Proffesional {
   @override
   String get id;
   @override
+  String get name;
+  @override
   Speciality get speciality;
   @override
   Map<String, String> get links;
+  @override
+  String get photoUrl;
+  @override
+  double get rating;
+  @override
+  int get reviewCount;
 
   /// Create a copy of Proffesional
   /// with the given fields replaced by the non-null parameter values.

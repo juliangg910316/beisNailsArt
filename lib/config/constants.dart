@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../domain/models/beauty_tip/beauty_tip.dart';
+import '../domain/models/proffesionals/proffesionals.dart';
 import '../domain/models/speciality/speciality.dart';
 
 class Constants {
@@ -58,5 +59,35 @@ class Constants {
     Colors.purple,
     Colors.blue,
     Colors.teal,
+  ];
+
+  static const proffesionals = [
+    Proffesional(
+      id: '1',
+      name: 'Beidis Viera',
+      speciality: Speciality(id: 1, name: 'Manicuria'),
+      links: {},
+      photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
+      rating: 5,
+      reviewCount: 128,
+    ),
+    Proffesional(
+      id: '2',
+      name: 'Sonia Rodriguez',
+      speciality: Speciality(id: 2, name: 'Cabeleireira'),
+      links: {},
+      photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
+      rating: 4,
+      reviewCount: 95,
+    ),
+    Proffesional(
+      id: '3',
+      name: 'Paola Gonzalez',
+      speciality: Speciality(id: 3, name: 'Masajista'),
+      links: {},
+      photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
+      rating: 4.5,
+      reviewCount: 156,
+    ),
   ];
 }
