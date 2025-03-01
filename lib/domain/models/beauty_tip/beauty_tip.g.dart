@@ -6,13 +6,12 @@ part of 'beauty_tip.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BeautyTipImpl _$$BeautyTipImplFromJson(Map<String, dynamic> json) =>
-    _$BeautyTipImpl(
+_BeautyTip _$BeautyTipFromJson(Map<String, dynamic> json) => _BeautyTip(
       title: json['title'] as String,
       description: json['description'] as String,
     );
 
-Map<String, dynamic> _$$BeautyTipImplToJson(_$BeautyTipImpl instance) =>
+Map<String, dynamic> _$BeautyTipToJson(_BeautyTip instance) =>
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,

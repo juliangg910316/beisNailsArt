@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,139 +10,29 @@ part of 'profile_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ProfileState _$ProfileStateFromJson(Map<String, dynamic> json) {
-  return _ProfileState.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ProfileState {
-  User? get profile => throw _privateConstructorUsedError;
-
-  /// Serializes this ProfileState to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  User? get profile;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ProfileStateCopyWith<ProfileState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ProfileStateCopyWithImpl<ProfileState>(
+          this as ProfileState, _$identity);
 
-/// @nodoc
-abstract class $ProfileStateCopyWith<$Res> {
-  factory $ProfileStateCopyWith(
-          ProfileState value, $Res Function(ProfileState) then) =
-      _$ProfileStateCopyWithImpl<$Res, ProfileState>;
-  @useResult
-  $Res call({User? profile});
-
-  $UserCopyWith<$Res>? get profile;
-}
-
-/// @nodoc
-class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
-    implements $ProfileStateCopyWith<$Res> {
-  _$ProfileStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ProfileState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? profile = freezed,
-  }) {
-    return _then(_value.copyWith(
-      profile: freezed == profile
-          ? _value.profile
-          : profile // ignore: cast_nullable_to_non_nullable
-              as User?,
-    ) as $Val);
-  }
-
-  /// Create a copy of ProfileState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get profile {
-    if (_value.profile == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.profile!, (value) {
-      return _then(_value.copyWith(profile: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ProfileStateImplCopyWith<$Res>
-    implements $ProfileStateCopyWith<$Res> {
-  factory _$$ProfileStateImplCopyWith(
-          _$ProfileStateImpl value, $Res Function(_$ProfileStateImpl) then) =
-      __$$ProfileStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({User? profile});
-
-  @override
-  $UserCopyWith<$Res>? get profile;
-}
-
-/// @nodoc
-class __$$ProfileStateImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateImpl>
-    implements _$$ProfileStateImplCopyWith<$Res> {
-  __$$ProfileStateImplCopyWithImpl(
-      _$ProfileStateImpl _value, $Res Function(_$ProfileStateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProfileState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? profile = freezed,
-  }) {
-    return _then(_$ProfileStateImpl(
-      profile: freezed == profile
-          ? _value.profile
-          : profile // ignore: cast_nullable_to_non_nullable
-              as User?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ProfileStateImpl implements _ProfileState {
-  const _$ProfileStateImpl({this.profile});
-
-  factory _$ProfileStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProfileStateImplFromJson(json);
-
-  @override
-  final User? profile;
-
-  @override
-  String toString() {
-    return 'ProfileState(profile: $profile)';
-  }
+  /// Serializes this ProfileState to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfileStateImpl &&
+            other is ProfileState &&
             (identical(other.profile, profile) || other.profile == profile));
   }
 
@@ -149,35 +40,153 @@ class _$ProfileStateImpl implements _ProfileState {
   @override
   int get hashCode => Object.hash(runtimeType, profile);
 
-  /// Create a copy of ProfileState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
-      __$$ProfileStateImplCopyWithImpl<_$ProfileStateImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ProfileStateImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ProfileState(profile: $profile)';
   }
 }
 
-abstract class _ProfileState implements ProfileState {
-  const factory _ProfileState({final User? profile}) = _$ProfileStateImpl;
+/// @nodoc
+abstract mixin class $ProfileStateCopyWith<$Res> {
+  factory $ProfileStateCopyWith(
+          ProfileState value, $Res Function(ProfileState) _then) =
+      _$ProfileStateCopyWithImpl;
+  @useResult
+  $Res call({User? profile});
 
-  factory _ProfileState.fromJson(Map<String, dynamic> json) =
-      _$ProfileStateImpl.fromJson;
+  $UserCopyWith<$Res>? get profile;
+}
+
+/// @nodoc
+class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
+  _$ProfileStateCopyWithImpl(this._self, this._then);
+
+  final ProfileState _self;
+  final $Res Function(ProfileState) _then;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? profile = freezed,
+  }) {
+    return _then(_self.copyWith(
+      profile: freezed == profile
+          ? _self.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as User?,
+    ));
+  }
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get profile {
+    if (_self.profile == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_self.profile!, (value) {
+      return _then(_self.copyWith(profile: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ProfileState implements ProfileState {
+  const _ProfileState({this.profile});
+  factory _ProfileState.fromJson(Map<String, dynamic> json) =>
+      _$ProfileStateFromJson(json);
 
   @override
-  User? get profile;
+  final User? profile;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ProfileStateCopyWith<_ProfileState> get copyWith =>
+      __$ProfileStateCopyWithImpl<_ProfileState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ProfileStateToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProfileState &&
+            (identical(other.profile, profile) || other.profile == profile));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, profile);
+
+  @override
+  String toString() {
+    return 'ProfileState(profile: $profile)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ProfileStateCopyWith<$Res>
+    implements $ProfileStateCopyWith<$Res> {
+  factory _$ProfileStateCopyWith(
+          _ProfileState value, $Res Function(_ProfileState) _then) =
+      __$ProfileStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call({User? profile});
+
+  @override
+  $UserCopyWith<$Res>? get profile;
+}
+
+/// @nodoc
+class __$ProfileStateCopyWithImpl<$Res>
+    implements _$ProfileStateCopyWith<$Res> {
+  __$ProfileStateCopyWithImpl(this._self, this._then);
+
+  final _ProfileState _self;
+  final $Res Function(_ProfileState) _then;
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? profile = freezed,
+  }) {
+    return _then(_ProfileState(
+      profile: freezed == profile
+          ? _self.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as User?,
+    ));
+  }
+
+  /// Create a copy of ProfileState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get profile {
+    if (_self.profile == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_self.profile!, (value) {
+      return _then(_self.copyWith(profile: value));
+    });
+  }
+}
+
+// dart format on

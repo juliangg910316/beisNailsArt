@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,100 +10,57 @@ part of 'login_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoginState {
-  bool get isPosting => throw _privateConstructorUsedError;
-  bool get isFormPosted => throw _privateConstructorUsedError;
-  bool get isValid => throw _privateConstructorUsedError;
-  Email get email => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
-  String get errorMessage => throw _privateConstructorUsedError;
+  bool get isPosting;
+  bool get isFormPosted;
+  bool get isValid;
+  Email get email;
+  Password get password;
+  String get errorMessage;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LoginStateCopyWith<LoginState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LoginStateCopyWith<$Res> {
-  factory $LoginStateCopyWith(
-          LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res, LoginState>;
-  @useResult
-  $Res call(
-      {bool isPosting,
-      bool isFormPosted,
-      bool isValid,
-      Email email,
-      Password password,
-      String errorMessage});
-}
-
-/// @nodoc
-class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
-    implements $LoginStateCopyWith<$Res> {
-  _$LoginStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $LoginStateCopyWith<LoginState> get copyWith =>
+      _$LoginStateCopyWithImpl<LoginState>(this as LoginState, _$identity);
+
   @override
-  $Res call({
-    Object? isPosting = null,
-    Object? isFormPosted = null,
-    Object? isValid = null,
-    Object? email = null,
-    Object? password = null,
-    Object? errorMessage = null,
-  }) {
-    return _then(_value.copyWith(
-      isPosting: null == isPosting
-          ? _value.isPosting
-          : isPosting // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isFormPosted: null == isFormPosted
-          ? _value.isFormPosted
-          : isFormPosted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isValid: null == isValid
-          ? _value.isValid
-          : isValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as Email,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-      errorMessage: null == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoginState &&
+            (identical(other.isPosting, isPosting) ||
+                other.isPosting == isPosting) &&
+            (identical(other.isFormPosted, isFormPosted) ||
+                other.isFormPosted == isFormPosted) &&
+            (identical(other.isValid, isValid) || other.isValid == isValid) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isPosting, isFormPosted, isValid,
+      email, password, errorMessage);
+
+  @override
+  String toString() {
+    return 'LoginState(isPosting: $isPosting, isFormPosted: $isFormPosted, isValid: $isValid, email: $email, password: $password, errorMessage: $errorMessage)';
   }
 }
 
 /// @nodoc
-abstract class _$$LoginStateImplCopyWith<$Res>
-    implements $LoginStateCopyWith<$Res> {
-  factory _$$LoginStateImplCopyWith(
-          _$LoginStateImpl value, $Res Function(_$LoginStateImpl) then) =
-      __$$LoginStateImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LoginStateCopyWith<$Res> {
+  factory $LoginStateCopyWith(
+          LoginState value, $Res Function(LoginState) _then) =
+      _$LoginStateCopyWithImpl;
   @useResult
   $Res call(
       {bool isPosting,
@@ -114,12 +72,11 @@ abstract class _$$LoginStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$LoginStateImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$LoginStateImpl>
-    implements _$$LoginStateImplCopyWith<$Res> {
-  __$$LoginStateImplCopyWithImpl(
-      _$LoginStateImpl _value, $Res Function(_$LoginStateImpl) _then)
-      : super(_value, _then);
+class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
+  _$LoginStateCopyWithImpl(this._self, this._then);
+
+  final LoginState _self;
+  final $Res Function(LoginState) _then;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -133,29 +90,29 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? password = null,
     Object? errorMessage = null,
   }) {
-    return _then(_$LoginStateImpl(
+    return _then(_self.copyWith(
       isPosting: null == isPosting
-          ? _value.isPosting
+          ? _self.isPosting
           : isPosting // ignore: cast_nullable_to_non_nullable
               as bool,
       isFormPosted: null == isFormPosted
-          ? _value.isFormPosted
+          ? _self.isFormPosted
           : isFormPosted // ignore: cast_nullable_to_non_nullable
               as bool,
       isValid: null == isValid
-          ? _value.isValid
+          ? _self.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
       email: null == email
-          ? _value.email
+          ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as Email,
       password: null == password
-          ? _value.password
+          ? _self.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
       errorMessage: null == errorMessage
-          ? _value.errorMessage
+          ? _self.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -164,8 +121,8 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginStateImpl implements _LoginState {
-  const _$LoginStateImpl(
+class _LoginState implements LoginState {
+  const _LoginState(
       {this.isPosting = false,
       this.isFormPosted = false,
       this.isValid = false,
@@ -192,16 +149,19 @@ class _$LoginStateImpl implements _LoginState {
   @JsonKey()
   final String errorMessage;
 
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LoginState(isPosting: $isPosting, isFormPosted: $isFormPosted, isValid: $isValid, email: $email, password: $password, errorMessage: $errorMessage)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LoginStateCopyWith<_LoginState> get copyWith =>
+      __$LoginStateCopyWithImpl<_LoginState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginStateImpl &&
+            other is _LoginState &&
             (identical(other.isPosting, isPosting) ||
                 other.isPosting == isPosting) &&
             (identical(other.isFormPosted, isFormPosted) ||
@@ -218,41 +178,75 @@ class _$LoginStateImpl implements _LoginState {
   int get hashCode => Object.hash(runtimeType, isPosting, isFormPosted, isValid,
       email, password, errorMessage);
 
+  @override
+  String toString() {
+    return 'LoginState(isPosting: $isPosting, isFormPosted: $isFormPosted, isValid: $isValid, email: $email, password: $password, errorMessage: $errorMessage)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$LoginStateCopyWith<$Res>
+    implements $LoginStateCopyWith<$Res> {
+  factory _$LoginStateCopyWith(
+          _LoginState value, $Res Function(_LoginState) _then) =
+      __$LoginStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {bool isPosting,
+      bool isFormPosted,
+      bool isValid,
+      Email email,
+      Password password,
+      String errorMessage});
+}
+
+/// @nodoc
+class __$LoginStateCopyWithImpl<$Res> implements _$LoginStateCopyWith<$Res> {
+  __$LoginStateCopyWithImpl(this._self, this._then);
+
+  final _LoginState _self;
+  final $Res Function(_LoginState) _then;
+
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
-      __$$LoginStateImplCopyWithImpl<_$LoginStateImpl>(this, _$identity);
+  $Res call({
+    Object? isPosting = null,
+    Object? isFormPosted = null,
+    Object? isValid = null,
+    Object? email = null,
+    Object? password = null,
+    Object? errorMessage = null,
+  }) {
+    return _then(_LoginState(
+      isPosting: null == isPosting
+          ? _self.isPosting
+          : isPosting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFormPosted: null == isFormPosted
+          ? _self.isFormPosted
+          : isFormPosted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isValid: null == isValid
+          ? _self.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      email: null == email
+          ? _self.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as Email,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      errorMessage: null == errorMessage
+          ? _self.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _LoginState implements LoginState {
-  const factory _LoginState(
-      {final bool isPosting,
-      final bool isFormPosted,
-      final bool isValid,
-      final Email email,
-      final Password password,
-      final String errorMessage}) = _$LoginStateImpl;
-
-  @override
-  bool get isPosting;
-  @override
-  bool get isFormPosted;
-  @override
-  bool get isValid;
-  @override
-  Email get email;
-  @override
-  Password get password;
-  @override
-  String get errorMessage;
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

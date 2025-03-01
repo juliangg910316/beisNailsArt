@@ -6,8 +6,8 @@ part of 'proffesionals.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProffesionalImpl _$$ProffesionalImplFromJson(Map<String, dynamic> json) =>
-    _$ProffesionalImpl(
+_Proffesional _$ProffesionalFromJson(Map<String, dynamic> json) =>
+    _Proffesional(
       id: json['id'] as String,
       name: json['name'] as String,
       speciality:
@@ -18,7 +18,7 @@ _$ProffesionalImpl _$$ProffesionalImplFromJson(Map<String, dynamic> json) =>
       reviewCount: (json['reviewCount'] as num?)?.toInt() ?? 0,
     );
 
-Map<String, dynamic> _$$ProffesionalImplToJson(_$ProffesionalImpl instance) =>
+Map<String, dynamic> _$ProffesionalToJson(_Proffesional instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

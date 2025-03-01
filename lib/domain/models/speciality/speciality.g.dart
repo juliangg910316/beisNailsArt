@@ -6,14 +6,13 @@ part of 'speciality.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SpecialityImpl _$$SpecialityImplFromJson(Map<String, dynamic> json) =>
-    _$SpecialityImpl(
+_Speciality _$SpecialityFromJson(Map<String, dynamic> json) => _Speciality(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       icon: json['icon'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$SpecialityImplToJson(_$SpecialityImpl instance) =>
+Map<String, dynamic> _$SpecialityToJson(_Speciality instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

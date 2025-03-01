@@ -6,7 +6,7 @@ part 'service.freezed.dart';
 part 'service.g.dart';
 
 @freezed
-class Service with _$Service {
+abstract class Service with _$Service {
   const factory Service({
     required int id,
     required Speciality speciality,

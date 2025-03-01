@@ -6,15 +6,14 @@ part of 'auth_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AuthStateImpl _$$AuthStateImplFromJson(Map<String, dynamic> json) =>
-    _$AuthStateImpl(
+_AuthState _$AuthStateFromJson(Map<String, dynamic> json) => _AuthState(
       authResponse:
           _authResponseFromJson(json['authResponse'] as Map<String, dynamic>?),
       isRegisterSuccessfully: json['isRegisterSuccessfully'] as bool? ?? false,
       isSignInSuccessfully: json['isSignInSuccessfully'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$AuthStateImplToJson(_$AuthStateImpl instance) =>
+Map<String, dynamic> _$AuthStateToJson(_AuthState instance) =>
     <String, dynamic>{
       'authResponse': _authResponseToJson(instance.authResponse),
       'isRegisterSuccessfully': instance.isRegisterSuccessfully,

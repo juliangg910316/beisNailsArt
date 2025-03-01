@@ -5,7 +5,7 @@ import '../../../../../data/inputs/inputs.dart';
 part 'login_state.freezed.dart';
 
 @freezed
-class LoginState with _$LoginState {
+abstract class LoginState with _$LoginState {
   const factory LoginState({
     @Default(false) bool isPosting,
     @Default(false) bool isFormPosted,

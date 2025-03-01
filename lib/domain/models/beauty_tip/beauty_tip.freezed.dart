@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,132 +10,29 @@ part of 'beauty_tip.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BeautyTip _$BeautyTipFromJson(Map<String, dynamic> json) {
-  return _BeautyTip.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BeautyTip {
-  String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-
-  /// Serializes this BeautyTip to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get title;
+  String get description;
 
   /// Create a copy of BeautyTip
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $BeautyTipCopyWith<BeautyTip> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$BeautyTipCopyWithImpl<BeautyTip>(this as BeautyTip, _$identity);
 
-/// @nodoc
-abstract class $BeautyTipCopyWith<$Res> {
-  factory $BeautyTipCopyWith(BeautyTip value, $Res Function(BeautyTip) then) =
-      _$BeautyTipCopyWithImpl<$Res, BeautyTip>;
-  @useResult
-  $Res call({String title, String description});
-}
-
-/// @nodoc
-class _$BeautyTipCopyWithImpl<$Res, $Val extends BeautyTip>
-    implements $BeautyTipCopyWith<$Res> {
-  _$BeautyTipCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of BeautyTip
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = null,
-    Object? description = null,
-  }) {
-    return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$BeautyTipImplCopyWith<$Res>
-    implements $BeautyTipCopyWith<$Res> {
-  factory _$$BeautyTipImplCopyWith(
-          _$BeautyTipImpl value, $Res Function(_$BeautyTipImpl) then) =
-      __$$BeautyTipImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String title, String description});
-}
-
-/// @nodoc
-class __$$BeautyTipImplCopyWithImpl<$Res>
-    extends _$BeautyTipCopyWithImpl<$Res, _$BeautyTipImpl>
-    implements _$$BeautyTipImplCopyWith<$Res> {
-  __$$BeautyTipImplCopyWithImpl(
-      _$BeautyTipImpl _value, $Res Function(_$BeautyTipImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BeautyTip
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = null,
-    Object? description = null,
-  }) {
-    return _then(_$BeautyTipImpl(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$BeautyTipImpl implements _BeautyTip {
-  const _$BeautyTipImpl({required this.title, required this.description});
-
-  factory _$BeautyTipImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BeautyTipImplFromJson(json);
-
-  @override
-  final String title;
-  @override
-  final String description;
-
-  @override
-  String toString() {
-    return 'BeautyTip(title: $title, description: $description)';
-  }
+  /// Serializes this BeautyTip to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BeautyTipImpl &&
+            other is BeautyTip &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -144,39 +42,132 @@ class _$BeautyTipImpl implements _BeautyTip {
   @override
   int get hashCode => Object.hash(runtimeType, title, description);
 
-  /// Create a copy of BeautyTip
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$BeautyTipImplCopyWith<_$BeautyTipImpl> get copyWith =>
-      __$$BeautyTipImplCopyWithImpl<_$BeautyTipImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BeautyTipImplToJson(
-      this,
-    );
+  String toString() {
+    return 'BeautyTip(title: $title, description: $description)';
   }
 }
 
-abstract class _BeautyTip implements BeautyTip {
-  const factory _BeautyTip(
-      {required final String title,
-      required final String description}) = _$BeautyTipImpl;
+/// @nodoc
+abstract mixin class $BeautyTipCopyWith<$Res> {
+  factory $BeautyTipCopyWith(BeautyTip value, $Res Function(BeautyTip) _then) =
+      _$BeautyTipCopyWithImpl;
+  @useResult
+  $Res call({String title, String description});
+}
 
-  factory _BeautyTip.fromJson(Map<String, dynamic> json) =
-      _$BeautyTipImpl.fromJson;
+/// @nodoc
+class _$BeautyTipCopyWithImpl<$Res> implements $BeautyTipCopyWith<$Res> {
+  _$BeautyTipCopyWithImpl(this._self, this._then);
+
+  final BeautyTip _self;
+  final $Res Function(BeautyTip) _then;
+
+  /// Create a copy of BeautyTip
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? description = null,
+  }) {
+    return _then(_self.copyWith(
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _BeautyTip implements BeautyTip {
+  const _BeautyTip({required this.title, required this.description});
+  factory _BeautyTip.fromJson(Map<String, dynamic> json) =>
+      _$BeautyTipFromJson(json);
 
   @override
-  String get title;
+  final String title;
   @override
-  String get description;
+  final String description;
 
   /// Create a copy of BeautyTip
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BeautyTipImplCopyWith<_$BeautyTipImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$BeautyTipCopyWith<_BeautyTip> get copyWith =>
+      __$BeautyTipCopyWithImpl<_BeautyTip>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$BeautyTipToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _BeautyTip &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, title, description);
+
+  @override
+  String toString() {
+    return 'BeautyTip(title: $title, description: $description)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$BeautyTipCopyWith<$Res>
+    implements $BeautyTipCopyWith<$Res> {
+  factory _$BeautyTipCopyWith(
+          _BeautyTip value, $Res Function(_BeautyTip) _then) =
+      __$BeautyTipCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String title, String description});
+}
+
+/// @nodoc
+class __$BeautyTipCopyWithImpl<$Res> implements _$BeautyTipCopyWith<$Res> {
+  __$BeautyTipCopyWithImpl(this._self, this._then);
+
+  final _BeautyTip _self;
+  final $Res Function(_BeautyTip) _then;
+
+  /// Create a copy of BeautyTip
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? title = null,
+    Object? description = null,
+  }) {
+    return _then(_BeautyTip(
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

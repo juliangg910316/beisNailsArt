@@ -5,7 +5,7 @@ import '../../../../../data/inputs/inputs.dart';
 part 'register_state.freezed.dart';
 
 @freezed
-class RegisterState with _$RegisterState {
+abstract class RegisterState with _$RegisterState {
   const factory RegisterState({
     @Default(false) bool isPosting,
     @Default(false) bool isFormPosted,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'custom_sliver_app_bar.dart';
 import 'services_grid_section.dart';
 import 'staff_section.dart';
-import 'custom_sliver_app_bar.dart';
 import 'tips_list_section.dart';
 
 class InfoPage extends ConsumerWidget {
@@ -16,7 +16,7 @@ class InfoPage extends ConsumerWidget {
         slivers: [
           const CustomSliverAppBar(),
           // Beauty Care Tips Section
-          const TipsListSection(),
+          SliverToBoxAdapter(child: const TipsListSection()),
 
           // Services Grid Section
           SliverPadding(

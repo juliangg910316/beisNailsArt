@@ -4,7 +4,7 @@ part 'speciality.freezed.dart';
 part 'speciality.g.dart';
 
 @freezed
-class Speciality with _$Speciality {
+abstract class Speciality with _$Speciality {
   const factory Speciality({
     required int id,
     required String name,

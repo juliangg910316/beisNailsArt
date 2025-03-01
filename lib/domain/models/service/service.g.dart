@@ -6,8 +6,7 @@ part of 'service.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
-    _$ServiceImpl(
+_Service _$ServiceFromJson(Map<String, dynamic> json) => _Service(
       id: (json['id'] as num).toInt(),
       speciality:
           Speciality.fromJson(json['speciality'] as Map<String, dynamic>),
@@ -17,8 +16,7 @@ _$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
     );
 
-Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ServiceToJson(_Service instance) => <String, dynamic>{
       'id': instance.id,
       'speciality': instance.speciality,
       'price': instance.price,

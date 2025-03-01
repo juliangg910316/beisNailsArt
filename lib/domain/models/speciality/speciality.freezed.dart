@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,148 +10,30 @@ part of 'speciality.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Speciality _$SpecialityFromJson(Map<String, dynamic> json) {
-  return _Speciality.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Speciality {
-  int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get icon => throw _privateConstructorUsedError;
-
-  /// Serializes this Speciality to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get id;
+  String get name;
+  String get icon;
 
   /// Create a copy of Speciality
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SpecialityCopyWith<Speciality> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$SpecialityCopyWithImpl<Speciality>(this as Speciality, _$identity);
 
-/// @nodoc
-abstract class $SpecialityCopyWith<$Res> {
-  factory $SpecialityCopyWith(
-          Speciality value, $Res Function(Speciality) then) =
-      _$SpecialityCopyWithImpl<$Res, Speciality>;
-  @useResult
-  $Res call({int id, String name, String icon});
-}
-
-/// @nodoc
-class _$SpecialityCopyWithImpl<$Res, $Val extends Speciality>
-    implements $SpecialityCopyWith<$Res> {
-  _$SpecialityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Speciality
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? icon = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SpecialityImplCopyWith<$Res>
-    implements $SpecialityCopyWith<$Res> {
-  factory _$$SpecialityImplCopyWith(
-          _$SpecialityImpl value, $Res Function(_$SpecialityImpl) then) =
-      __$$SpecialityImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int id, String name, String icon});
-}
-
-/// @nodoc
-class __$$SpecialityImplCopyWithImpl<$Res>
-    extends _$SpecialityCopyWithImpl<$Res, _$SpecialityImpl>
-    implements _$$SpecialityImplCopyWith<$Res> {
-  __$$SpecialityImplCopyWithImpl(
-      _$SpecialityImpl _value, $Res Function(_$SpecialityImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Speciality
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? icon = null,
-  }) {
-    return _then(_$SpecialityImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SpecialityImpl implements _Speciality {
-  const _$SpecialityImpl(
-      {required this.id, required this.name, this.icon = ''});
-
-  factory _$SpecialityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SpecialityImplFromJson(json);
-
-  @override
-  final int id;
-  @override
-  final String name;
-  @override
-  @JsonKey()
-  final String icon;
-
-  @override
-  String toString() {
-    return 'Speciality(id: $id, name: $name, icon: $icon)';
-  }
+  /// Serializes this Speciality to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SpecialityImpl &&
+            other is Speciality &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.icon, icon) || other.icon == icon));
@@ -160,42 +43,146 @@ class _$SpecialityImpl implements _Speciality {
   @override
   int get hashCode => Object.hash(runtimeType, id, name, icon);
 
-  /// Create a copy of Speciality
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SpecialityImplCopyWith<_$SpecialityImpl> get copyWith =>
-      __$$SpecialityImplCopyWithImpl<_$SpecialityImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SpecialityImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Speciality(id: $id, name: $name, icon: $icon)';
   }
 }
 
-abstract class _Speciality implements Speciality {
-  const factory _Speciality(
-      {required final int id,
-      required final String name,
-      final String icon}) = _$SpecialityImpl;
+/// @nodoc
+abstract mixin class $SpecialityCopyWith<$Res> {
+  factory $SpecialityCopyWith(
+          Speciality value, $Res Function(Speciality) _then) =
+      _$SpecialityCopyWithImpl;
+  @useResult
+  $Res call({int id, String name, String icon});
+}
 
-  factory _Speciality.fromJson(Map<String, dynamic> json) =
-      _$SpecialityImpl.fromJson;
+/// @nodoc
+class _$SpecialityCopyWithImpl<$Res> implements $SpecialityCopyWith<$Res> {
+  _$SpecialityCopyWithImpl(this._self, this._then);
+
+  final Speciality _self;
+  final $Res Function(Speciality) _then;
+
+  /// Create a copy of Speciality
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? icon = null,
+  }) {
+    return _then(_self.copyWith(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: null == icon
+          ? _self.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _Speciality implements Speciality {
+  const _Speciality({required this.id, required this.name, this.icon = ''});
+  factory _Speciality.fromJson(Map<String, dynamic> json) =>
+      _$SpecialityFromJson(json);
 
   @override
-  int get id;
+  final int id;
   @override
-  String get name;
+  final String name;
   @override
-  String get icon;
+  @JsonKey()
+  final String icon;
 
   /// Create a copy of Speciality
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SpecialityImplCopyWith<_$SpecialityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SpecialityCopyWith<_Speciality> get copyWith =>
+      __$SpecialityCopyWithImpl<_Speciality>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SpecialityToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Speciality &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.icon, icon) || other.icon == icon));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, icon);
+
+  @override
+  String toString() {
+    return 'Speciality(id: $id, name: $name, icon: $icon)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SpecialityCopyWith<$Res>
+    implements $SpecialityCopyWith<$Res> {
+  factory _$SpecialityCopyWith(
+          _Speciality value, $Res Function(_Speciality) _then) =
+      __$SpecialityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({int id, String name, String icon});
+}
+
+/// @nodoc
+class __$SpecialityCopyWithImpl<$Res> implements _$SpecialityCopyWith<$Res> {
+  __$SpecialityCopyWithImpl(this._self, this._then);
+
+  final _Speciality _self;
+  final $Res Function(_Speciality) _then;
+
+  /// Create a copy of Speciality
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? icon = null,
+  }) {
+    return _then(_Speciality(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: null == icon
+          ? _self.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

@@ -6,7 +6,7 @@ part 'proffesionals.freezed.dart';
 part 'proffesionals.g.dart';
 
 @freezed
-class Proffesional with _$Proffesional {
+abstract class Proffesional with _$Proffesional {
   const factory Proffesional({
     required String id,
     required String name,

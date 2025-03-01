@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,112 +10,60 @@ part of 'user.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
-}
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get picture => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  String? get gender => throw _privateConstructorUsedError;
+  String get id;
+  String? get name;
+  String? get picture;
+  String? get address;
+  String? get gender;
   @JsonKey(name: 'date_of_birth')
-  DateTime? get birthDate => throw _privateConstructorUsedError;
-  Role get role => throw _privateConstructorUsedError;
-
-  /// Serializes this User to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  DateTime? get birthDate;
+  Role get role;
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
-  @useResult
-  $Res call(
-      {String id,
-      String? name,
-      String? picture,
-      String? address,
-      String? gender,
-      @JsonKey(name: 'date_of_birth') DateTime? birthDate,
-      Role role});
-}
-
-/// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $UserCopyWith<User> get copyWith =>
+      _$UserCopyWithImpl<User>(this as User, _$identity);
+
+  /// Serializes this User to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? name = freezed,
-    Object? picture = freezed,
-    Object? address = freezed,
-    Object? gender = freezed,
-    Object? birthDate = freezed,
-    Object? role = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      picture: freezed == picture
-          ? _value.picture
-          : picture // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gender: freezed == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
-      birthDate: freezed == birthDate
-          ? _value.birthDate
-          : birthDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as Role,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is User &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.birthDate, birthDate) ||
+                other.birthDate == birthDate) &&
+            (identical(other.role, role) || other.role == role));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, name, picture, address, gender, birthDate, role);
+
+  @override
+  String toString() {
+    return 'User(id: $id, name: $name, picture: $picture, address: $address, gender: $gender, birthDate: $birthDate, role: $role)';
   }
 }
 
 /// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$UserImplCopyWith(
-          _$UserImpl value, $Res Function(_$UserImpl) then) =
-      __$$UserImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $UserCopyWith<$Res> {
+  factory $UserCopyWith(User value, $Res Function(User) _then) =
+      _$UserCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -127,11 +76,11 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserImpl>
-    implements _$$UserImplCopyWith<$Res> {
-  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
-      : super(_value, _then);
+class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
+  _$UserCopyWithImpl(this._self, this._then);
+
+  final User _self;
+  final $Res Function(User) _then;
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -146,33 +95,33 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? birthDate = freezed,
     Object? role = null,
   }) {
-    return _then(_$UserImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       name: freezed == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
       picture: freezed == picture
-          ? _value.picture
+          ? _self.picture
           : picture // ignore: cast_nullable_to_non_nullable
               as String?,
       address: freezed == address
-          ? _value.address
+          ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
       gender: freezed == gender
-          ? _value.gender
+          ? _self.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String?,
       birthDate: freezed == birthDate
-          ? _value.birthDate
+          ? _self.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       role: null == role
-          ? _value.role
+          ? _self.role
           : role // ignore: cast_nullable_to_non_nullable
               as Role,
     ));
@@ -181,8 +130,8 @@ class __$$UserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserImpl implements _User {
-  const _$UserImpl(
+class _User implements User {
+  const _User(
       {this.id = '0',
       this.name,
       this.picture,
@@ -190,9 +139,7 @@ class _$UserImpl implements _User {
       this.gender,
       @JsonKey(name: 'date_of_birth') this.birthDate,
       this.role = Role.client});
-
-  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserImplFromJson(json);
+  factory _User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   @override
   @JsonKey()
@@ -212,16 +159,26 @@ class _$UserImpl implements _User {
   @JsonKey()
   final Role role;
 
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'User(id: $id, name: $name, picture: $picture, address: $address, gender: $gender, birthDate: $birthDate, role: $role)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UserCopyWith<_User> get copyWith =>
+      __$UserCopyWithImpl<_User>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$UserToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
+            other is _User &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.picture, picture) || other.picture == picture) &&
@@ -237,54 +194,79 @@ class _$UserImpl implements _User {
   int get hashCode => Object.hash(
       runtimeType, id, name, picture, address, gender, birthDate, role);
 
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(
-      this,
-    );
+  String toString() {
+    return 'User(id: $id, name: $name, picture: $picture, address: $address, gender: $gender, birthDate: $birthDate, role: $role)';
   }
 }
 
-abstract class _User implements User {
-  const factory _User(
-      {final String id,
-      final String? name,
-      final String? picture,
-      final String? address,
-      final String? gender,
-      @JsonKey(name: 'date_of_birth') final DateTime? birthDate,
-      final Role role}) = _$UserImpl;
+/// @nodoc
+abstract mixin class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$UserCopyWith(_User value, $Res Function(_User) _then) =
+      __$UserCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String? name,
+      String? picture,
+      String? address,
+      String? gender,
+      @JsonKey(name: 'date_of_birth') DateTime? birthDate,
+      Role role});
+}
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
+/// @nodoc
+class __$UserCopyWithImpl<$Res> implements _$UserCopyWith<$Res> {
+  __$UserCopyWithImpl(this._self, this._then);
 
-  @override
-  String get id;
-  @override
-  String? get name;
-  @override
-  String? get picture;
-  @override
-  String? get address;
-  @override
-  String? get gender;
-  @override
-  @JsonKey(name: 'date_of_birth')
-  DateTime? get birthDate;
-  @override
-  Role get role;
+  final _User _self;
+  final $Res Function(_User) _then;
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? name = freezed,
+    Object? picture = freezed,
+    Object? address = freezed,
+    Object? gender = freezed,
+    Object? birthDate = freezed,
+    Object? role = null,
+  }) {
+    return _then(_User(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: freezed == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      picture: freezed == picture
+          ? _self.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: freezed == gender
+          ? _self.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
+      birthDate: freezed == birthDate
+          ? _self.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      role: null == role
+          ? _self.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as Role,
+    ));
+  }
 }
+
+// dart format on

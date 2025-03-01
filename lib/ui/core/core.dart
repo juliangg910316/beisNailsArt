@@ -12,5 +12,4 @@ export 'ui/error_indicator.dart';
 export 'ui/geometrical_background.dart';
 export 'ui/home_button.dart';
 export 'ui/scroll_behavior.dart';
-export 'ui/search_bar.dart';
 export 'ui/tag_chip.dart';
