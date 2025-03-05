@@ -22,7 +22,20 @@ class InfoPage extends ConsumerWidget {
           SliverPadding(
             padding: const EdgeInsets.all(16.0),
             sliver: SliverToBoxAdapter(
-              child: const ServicesGridSection(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Nuestros Servicios',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  ServicesGridSection(),
+                ],
+              ),
             ),
           ),
 

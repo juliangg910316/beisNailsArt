@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../domain/models/appointment/appointment.dart';
+import '../../../utils/util.dart';
 import '../../core/themes/colors.dart';
 import '../providers/calendar_provider.dart';
 import 'appointment_card.dart';
@@ -44,8 +45,8 @@ class _CalendarPageState extends ConsumerState<CalendarPage> {
           children: [
             TableCalendar(
               locale: 'es_ES',
-              firstDay: DateTime.utc(2024, 1, 1),
-              lastDay: DateTime.utc(2025, 12, 31),
+              firstDay: DateTime.now(),
+              lastDay: getTwoMonthsFromNow(),
               focusedDay: _focusedDay,
               calendarFormat: _calendarFormat,
               selectedDayPredicate: (day) {
@@ -85,7 +86,7 @@ class _CalendarPageState extends ConsumerState<CalendarPage> {
                 ),
               ),
               headerStyle: const HeaderStyle(
-                formatButtonVisible: true,
+                formatButtonVisible: false,
                 titleCentered: true,
                 formatButtonShowsNext: false,
               ),
@@ -112,7 +113,8 @@ class _CalendarPageState extends ConsumerState<CalendarPage> {
                             _getEventsForDay(_selectedDay!)[index];
                         return AppointmentCard(
                           appointment: appointment,
-                          onTap: () => _showAppointmentDetails(appointment),
+                          onTap: () =>
+                              {}, //_showAppointmentDetails(appointment),
                         );
                       },
                     ),
@@ -121,18 +123,10 @@ class _CalendarPageState extends ConsumerState<CalendarPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _showCreateAppointment,
+        onPressed: () {}, //_showCreateAppointment,
         backgroundColor: AppColors.main,
         child: const Icon(Icons.add),
       ),
     );
-  }
-
-  void _showAppointmentDetails(Appointment appointment) {
-    // Show appointment details dialog
-  }
-
-  void _showCreateAppointment() {
-    // Show create appointment dialog
   }
 }
