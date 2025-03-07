@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../domain/models/beauty_tip/beauty_tip.dart';
 import '../domain/models/proffesionals/proffesionals.dart';
+import '../domain/models/roles/role.dart';
 import '../domain/models/speciality/speciality.dart';
+import '../domain/models/user/user.dart';
 
 class Constants {
   Constants._();
@@ -63,8 +65,7 @@ class Constants {
 
   static const proffesionals = [
     Proffesional(
-      id: '1',
-      name: 'Beidis Viera',
+      user: User(name: 'Beidis Viera', id: '1', role: Role.proffesional),
       speciality: Speciality(id: 1, name: 'Manicuria'),
       links: {},
       photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
@@ -72,8 +73,7 @@ class Constants {
       reviewCount: 128,
     ),
     Proffesional(
-      id: '2',
-      name: 'Sonia Rodriguez',
+      user: User(name: 'Sonia Rodriguez', id: '2', role: Role.proffesional),
       speciality: Speciality(id: 2, name: 'Cabeleireira'),
       links: {},
       photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL
@@ -81,8 +81,7 @@ class Constants {
       reviewCount: 95,
     ),
     Proffesional(
-      id: '3',
-      name: 'Paola Gonzalez',
+      user: User(name: 'Paola Gonzalez', id: '3', role: Role.proffesional),
       speciality: Speciality(id: 3, name: 'Masajista'),
       links: {},
       photoUrl: 'assets/images/bei.jpeg', // Replace with actual photo URL

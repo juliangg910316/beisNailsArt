@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Proffesional {
-  String get id;
-  String get name;
+// required String id,
+  User get user;
   Speciality get speciality;
   Map<String, String> get links;
   String get photoUrl;
@@ -39,8 +39,7 @@ mixin _$Proffesional {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Proffesional &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.speciality, speciality) ||
                 other.speciality == speciality) &&
             const DeepCollectionEquality().equals(other.links, links) &&
@@ -55,8 +54,7 @@ mixin _$Proffesional {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      name,
+      user,
       speciality,
       const DeepCollectionEquality().hash(links),
       photoUrl,
@@ -65,7 +63,7 @@ mixin _$Proffesional {
 
   @override
   String toString() {
-    return 'Proffesional(id: $id, name: $name, speciality: $speciality, links: $links, photoUrl: $photoUrl, rating: $rating, reviewCount: $reviewCount)';
+    return 'Proffesional(user: $user, speciality: $speciality, links: $links, photoUrl: $photoUrl, rating: $rating, reviewCount: $reviewCount)';
   }
 }
 
@@ -76,14 +74,14 @@ abstract mixin class $ProffesionalCopyWith<$Res> {
       _$ProffesionalCopyWithImpl;
   @useResult
   $Res call(
-      {String id,
-      String name,
+      {User user,
       Speciality speciality,
       Map<String, String> links,
       String photoUrl,
       double rating,
       int reviewCount});
 
+  $UserCopyWith<$Res> get user;
   $SpecialityCopyWith<$Res> get speciality;
 }
 
@@ -99,8 +97,7 @@ class _$ProffesionalCopyWithImpl<$Res> implements $ProffesionalCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? user = null,
     Object? speciality = null,
     Object? links = null,
     Object? photoUrl = null,
@@ -108,14 +105,10 @@ class _$ProffesionalCopyWithImpl<$Res> implements $ProffesionalCopyWith<$Res> {
     Object? reviewCount = null,
   }) {
     return _then(_self.copyWith(
-      id: null == id
-          ? _self.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      user: null == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
       speciality: null == speciality
           ? _self.speciality
           : speciality // ignore: cast_nullable_to_non_nullable
@@ -143,6 +136,16 @@ class _$ProffesionalCopyWithImpl<$Res> implements $ProffesionalCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_self.user, (value) {
+      return _then(_self.copyWith(user: value));
+    });
+  }
+
+  /// Create a copy of Proffesional
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $SpecialityCopyWith<$Res> get speciality {
     return $SpecialityCopyWith<$Res>(_self.speciality, (value) {
       return _then(_self.copyWith(speciality: value));
@@ -154,21 +157,19 @@ class _$ProffesionalCopyWithImpl<$Res> implements $ProffesionalCopyWith<$Res> {
 @JsonSerializable()
 class _Proffesional implements Proffesional {
   const _Proffesional(
-      {required this.id,
-      required this.name,
+      {required this.user,
       required this.speciality,
       required final Map<String, String> links,
-      this.photoUrl = '',
-      this.rating = 0,
-      this.reviewCount = 0})
+      this.photoUrl = 'assets/images/bei.jpeg',
+      this.rating = 5,
+      this.reviewCount = 100})
       : _links = links;
   factory _Proffesional.fromJson(Map<String, dynamic> json) =>
       _$ProffesionalFromJson(json);
 
+// required String id,
   @override
-  final String id;
-  @override
-  final String name;
+  final User user;
   @override
   final Speciality speciality;
   final Map<String, String> _links;
@@ -209,8 +210,7 @@ class _Proffesional implements Proffesional {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Proffesional &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.speciality, speciality) ||
                 other.speciality == speciality) &&
             const DeepCollectionEquality().equals(other._links, _links) &&
@@ -225,8 +225,7 @@ class _Proffesional implements Proffesional {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      name,
+      user,
       speciality,
       const DeepCollectionEquality().hash(_links),
       photoUrl,
@@ -235,7 +234,7 @@ class _Proffesional implements Proffesional {
 
   @override
   String toString() {
-    return 'Proffesional(id: $id, name: $name, speciality: $speciality, links: $links, photoUrl: $photoUrl, rating: $rating, reviewCount: $reviewCount)';
+    return 'Proffesional(user: $user, speciality: $speciality, links: $links, photoUrl: $photoUrl, rating: $rating, reviewCount: $reviewCount)';
   }
 }
 
@@ -248,14 +247,15 @@ abstract mixin class _$ProffesionalCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
+      {User user,
       Speciality speciality,
       Map<String, String> links,
       String photoUrl,
       double rating,
       int reviewCount});
 
+  @override
+  $UserCopyWith<$Res> get user;
   @override
   $SpecialityCopyWith<$Res> get speciality;
 }
@@ -273,8 +273,7 @@ class __$ProffesionalCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? user = null,
     Object? speciality = null,
     Object? links = null,
     Object? photoUrl = null,
@@ -282,14 +281,10 @@ class __$ProffesionalCopyWithImpl<$Res>
     Object? reviewCount = null,
   }) {
     return _then(_Proffesional(
-      id: null == id
-          ? _self.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      user: null == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
       speciality: null == speciality
           ? _self.speciality
           : speciality // ignore: cast_nullable_to_non_nullable
@@ -311,6 +306,16 @@ class __$ProffesionalCopyWithImpl<$Res>
           : reviewCount // ignore: cast_nullable_to_non_nullable
               as int,
     ));
+  }
+
+  /// Create a copy of Proffesional
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_self.user, (value) {
+      return _then(_self.copyWith(user: value));
+    });
   }
 
   /// Create a copy of Proffesional

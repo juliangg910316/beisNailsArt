@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+
 import '../../../domain/models/proffesionals/proffesionals.dart';
 import '../../shared/widgets/rating_stars.dart';
 
 class StaffMemberCard extends StatelessWidget {
   const StaffMemberCard({
     super.key,
-    required this.staff,
+    required this.professional,
   });
 
-  final Proffesional staff;
+  final Proffesional professional;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +25,9 @@ class StaffMemberCard extends StatelessWidget {
               top: Radius.circular(12),
             ),
             child: Image.asset(
-              staff.photoUrl,
-              height: 150,
-              width: double.infinity,
+              professional.photoUrl,
+              height: 120,
+              width: 140,
               fit: BoxFit.cover,
             ),
           ),
@@ -36,7 +37,7 @@ class StaffMemberCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  staff.name,
+                  professional.user.name ?? '',
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -45,7 +46,7 @@ class StaffMemberCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  staff.speciality.name,
+                  professional.speciality.name,
                   style: TextStyle(
                     fontSize: 14,
                     color: Colors.grey[600],
@@ -54,13 +55,13 @@ class StaffMemberCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 RatingStars(
-                  rating: staff.rating,
+                  rating: professional.rating,
                   size: 16,
                   color: Colors.amber,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '(${staff.reviewCount} reviews)',
+                  '(${professional.reviewCount} reviews)',
                   style: TextStyle(
                     color: Colors.grey[600],
                     fontSize: 12,

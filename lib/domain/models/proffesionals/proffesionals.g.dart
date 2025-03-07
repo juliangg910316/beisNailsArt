@@ -8,20 +8,18 @@ part of 'proffesionals.dart';
 
 _Proffesional _$ProffesionalFromJson(Map<String, dynamic> json) =>
     _Proffesional(
-      id: json['id'] as String,
-      name: json['name'] as String,
+      user: User.fromJson(json['user'] as Map<String, dynamic>),
       speciality:
           Speciality.fromJson(json['speciality'] as Map<String, dynamic>),
       links: Map<String, String>.from(json['links'] as Map),
-      photoUrl: json['photoUrl'] as String? ?? '',
-      rating: (json['rating'] as num?)?.toDouble() ?? 0,
-      reviewCount: (json['reviewCount'] as num?)?.toInt() ?? 0,
+      photoUrl: json['photoUrl'] as String? ?? 'assets/images/bei.jpeg',
+      rating: (json['rating'] as num?)?.toDouble() ?? 5,
+      reviewCount: (json['reviewCount'] as num?)?.toInt() ?? 100,
     );
 
 Map<String, dynamic> _$ProffesionalToJson(_Proffesional instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
+      'user': instance.user,
       'speciality': instance.speciality,
       'links': instance.links,
       'photoUrl': instance.photoUrl,

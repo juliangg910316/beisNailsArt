@@ -1,45 +1,53 @@
 import 'package:flutter/material.dart';
-import '../../../config/constants.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logging/logging.dart';
+
+import '../../calendar/providers/professional_provider.dart';
 import 'staff_member_card.dart';
 
-class StaffSection extends StatelessWidget {
+class StaffSection extends ConsumerWidget {
   const StaffSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Nuestros Equipo',
+  Widget build(BuildContext context, WidgetRef ref) {
+    final professionalsAsync = ref.watch(professionalProviderProvider);
+    final logger = Logger('StaffSection');
+
+    return professionalsAsync.when(
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (error, stack) => Center(child: Text('Error: $error')),
+      data: (state) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              'Nuestro Staff',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Icon(Icons.arrow_forward)
-          ],
-        ),
-        const SizedBox(height: 16),
-        SizedBox(
-          height: 280, // Adjust height as needed
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: Constants.proffesionals.length,
-            itemBuilder: (context, index) {
-              final staff = Constants.proffesionals[index];
-              return Container(
-                width: 200, // Adjust width as needed
-                margin: const EdgeInsets.only(right: 16),
-                child: StaffMemberCard(staff: staff),
-              );
-            },
           ),
-        ),
-      ],
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 250,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              itemCount: state.professionals.length,
+              itemBuilder: (context, index) {
+                final professional = state.professionals[index];
+                logger.info('Professional: $professional');
+                return Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: StaffMemberCard(professional: professional),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
