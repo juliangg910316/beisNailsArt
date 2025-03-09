@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../ui/auth/login/widgets/login_page.dart';
 import '../ui/auth/register/widgets/register_page.dart';
+import '../ui/calendar/widgets/appointment_form_view.dart';
 import '../ui/home/widgets/home_page.dart';
 
 part 'app_router.g.dart';
@@ -33,6 +34,10 @@ GoRouter appRouter(Ref ref) {
       GoRoute(
         path: '/',
         builder: (context, state) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/add_appoinment',
+        builder: (context, state) => AppointmentFormView(),
       ),
 
       // GoRoute(

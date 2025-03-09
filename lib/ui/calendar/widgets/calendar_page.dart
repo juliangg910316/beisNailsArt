@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../domain/models/appointment/appointment.dart';
@@ -123,7 +124,7 @@ class _CalendarPageState extends ConsumerState<CalendarPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {}, //_showCreateAppointment,
+        onPressed: () => context.go('/add_appoinment'),
         backgroundColor: AppColors.main,
         child: const Icon(Icons.add),
       ),
